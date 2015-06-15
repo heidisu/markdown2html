@@ -13,9 +13,5 @@ hs_err_pid*
 
 *.metadata
 
-.metadata/**/* 
-org.eclipse.xtext.markdown.ui/bin/**/*
-org.eclipse.xtext.markdown/bin/**/*
-org.eclipse.xtext.markdown.generator/bin/**/*
-org.eclipse.xtext.markdown.tests/bin/**/*
-org.eclipse.xtext.markdown.sdk/bin/**/*
+.metadata/
+bin/

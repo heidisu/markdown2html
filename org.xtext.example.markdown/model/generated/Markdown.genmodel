@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.example.markdown/src-gen" editDirectory="/org.xtext.example.markdown.edit/src"
+    editorDirectory="/org.xtext.example.markdown.editor/src" modelPluginID="org.xtext.example.markdown"
+    forceOverwrite="true" modelName="Markdown" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.xtext.example.markdown.edit"
+    editorPluginID="org.xtext.example.markdown.editor" runtimeVersion="2.10">
+  <genPackages prefix="Markdown" basePackage="org.xtext.example.markdown" disposableProviderFactory="true"
+      fileExtensions="markdown" ecorePackage="Markdown.ecore#/">
+    <genClasses ecoreClass="Markdown.ecore#//Markdown">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//Markdown/content"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//Content">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//Content/entity"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//Header1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Markdown.ecore#//Header1/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//Header2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Markdown.ecore#//Header2/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//PlainText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Markdown.ecore#//PlainText/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//Italic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//Italic/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//Bold">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//Bold/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

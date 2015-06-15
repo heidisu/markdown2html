@@ -1,0 +1,48 @@
+grammar org.xtext.example.markdown.Markdown with org.eclipse.xtext.common.Terminals
+
+generate markdown "http://www.xtext.org/example/markdown/Markdown"
+
+Markdown:
+    content+=Content*
+;
+
+Content:
+    (entity+=(Header1|Header2|Italic|Bold|PlainText))+
+    NEWLINE+
+;
+
+Header1:
+    '#' value = HEADER_VALUE
+;
+    
+Header2:
+	'##' value= HEADER_VALUE
+;
+
+PlainText:
+	value = TEXT
+;
+
+Italic:
+	(('*' value +=(PlainText|Bold)+ '*')|('_' value +=(PlainText|Bold)+ '_')) 
+;
+
+Bold:
+	(('**' value += (PlainText|Italic)+'**') | ('__' value +=(PlainText|Italic)+ '__')) 
+;
+
+terminal TEXT:
+	('a'..'å' | 'A'..'Å') (ID|WS)*
+;
+
+terminal HEADER_VALUE: 
+	' ' (!('\n' | '\r'))*
+;
+
+terminal WS:
+    (' ' | '\t')+
+;
+
+terminal NEWLINE:
+    '\r'? '\n'
+;
