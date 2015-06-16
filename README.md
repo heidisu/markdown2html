@@ -1,5 +1,5 @@
 # markdown2html
-This project is for exploring how [Xtext](https://eclipse.org/Xtext/) works, by making a DSL for [Github markdown](https://guides.github.com/features/mastering-markdown/), and finally generate HTML from the markdown.
+The purpose of this project is to explore how [Xtext](https://eclipse.org/Xtext/) works, by making a DSL for [Github markdown](https://guides.github.com/features/mastering-markdown/), and finally generate HTML from the markdown.
 
 ## Getting started
 * Install pre-configured Eclipse with Xtext from [here](https://eclipse.org/Xtext/download.html).
