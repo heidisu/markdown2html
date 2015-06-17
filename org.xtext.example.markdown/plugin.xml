@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.xtext.org/example/markdown/Markdown" 
-       class = "org.xtext.example.markdown.myDsl.MyDslPackage"
+       class = "org.xtext.example.markdown.markdown.MarkdownPackage"
        genModel = "model/generated/Markdown.genmodel" /> 
 	
   </extension>
