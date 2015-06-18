@@ -14,6 +14,7 @@ import org.xtext.example.markdown.markdown.Header2
 import org.xtext.example.markdown.markdown.Bold
 import org.xtext.example.markdown.markdown.Italic
 import org.xtext.example.markdown.markdown.PlainText
+import org.xtext.example.markdown.markdown.TextBlock
 
 /**
  * Generates code from your model files on save.
@@ -37,7 +38,7 @@ class MarkdownGenerator implements IGenerator {
 	}
 	
 	def dispatch String generate(Content content){
-		content.entity.map[generate].join
+		content.entity.generate
 	}
 	
 	def dispatch String generate(Header1 header1){
@@ -46,6 +47,10 @@ class MarkdownGenerator implements IGenerator {
 	
 	def dispatch String generate(Header2 header2){
 		'<h2>' + header2.value + '</h2>'
+	}
+	
+	def dispatch String generate(TextBlock textblock){
+		textblock.text.map[generate].join
 	}
 	
 	def dispatch String generate(Bold bold){

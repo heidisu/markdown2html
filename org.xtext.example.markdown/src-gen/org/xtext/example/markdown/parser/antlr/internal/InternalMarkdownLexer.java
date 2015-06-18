@@ -13,22 +13,22 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMarkdownLexer extends Lexer {
     public static final int RULE_NEWLINE=4;
-    public static final int RULE_STRING=10;
-    public static final int RULE_SL_COMMENT=12;
+    public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=11;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
+    public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=7;
-    public static final int RULE_WS=8;
-    public static final int RULE_ANY_OTHER=13;
-    public static final int RULE_HEADER_VALUE=5;
-    public static final int RULE_INT=9;
-    public static final int RULE_ML_COMMENT=11;
-    public static final int RULE_TEXT=6;
+    public static final int RULE_ID=6;
+    public static final int RULE_WS=7;
+    public static final int RULE_ANY_OTHER=12;
+    public static final int RULE_INT=8;
+    public static final int RULE_ML_COMMENT=10;
+    public static final int RULE_TEXT=5;
 
     // delegates
     // delegators
@@ -43,15 +43,37 @@ public class InternalMarkdownLexer extends Lexer {
     }
     public String getGrammarFileName() { return "../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g"; }
 
+    // $ANTLR start "T__13"
+    public final void mT__13() throws RecognitionException {
+        try {
+            int _type = T__13;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:11:7: ( '# ' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:11:9: '# '
+            {
+            match("# "); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__13"
+
     // $ANTLR start "T__14"
     public final void mT__14() throws RecognitionException {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:11:7: ( '#' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:11:9: '#'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:12:7: ( '## ' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:12:9: '## '
             {
-            match('#'); 
+            match("## "); 
+
 
             }
 
@@ -68,11 +90,10 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:12:7: ( '##' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:12:9: '##'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:13:7: ( '*' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:13:9: '*'
             {
-            match("##"); 
-
+            match('*'); 
 
             }
 
@@ -89,10 +110,11 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:13:7: ( '*' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:13:9: '*'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:14:7: ( '* ' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:14:9: '* '
             {
-            match('*'); 
+            match("* "); 
+
 
             }
 
@@ -109,8 +131,8 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:14:7: ( '_' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:14:9: '_'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:15:7: ( '_' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:15:9: '_'
             {
             match('_'); 
 
@@ -129,8 +151,8 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:15:7: ( '**' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:15:9: '**'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:16:7: ( '**' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:16:9: '**'
             {
             match("**"); 
 
@@ -150,8 +172,8 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:16:7: ( '__' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:16:9: '__'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:17:7: ( '__' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:17:9: '__'
             {
             match("__"); 
 
@@ -171,8 +193,8 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_TEXT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:556:11: ( ( 'a' .. '\\u00E5' | 'A' .. '\\u00C5' ) ( RULE_ID | RULE_WS )* )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:556:13: ( 'a' .. '\\u00E5' | 'A' .. '\\u00C5' ) ( RULE_ID | RULE_WS )*
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:11: ( ( 'a' .. '\\u00E5' | 'A' .. '\\u00C5' ) ( RULE_ID | RULE_WS | '!' | '?' )+ )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:13: ( 'a' .. '\\u00E5' | 'A' .. '\\u00C5' ) ( RULE_ID | RULE_WS | '!' | '?' )+
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='\u00E5') ) {
                 input.consume();
@@ -183,39 +205,126 @@ public class InternalMarkdownLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:556:43: ( RULE_ID | RULE_WS )*
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:43: ( RULE_ID | RULE_WS | '!' | '?' )+
+            int cnt1=0;
             loop1:
             do {
-                int alt1=3;
-                int LA1_0 = input.LA(1);
-
-                if ( ((LA1_0>='A' && LA1_0<='Z')||(LA1_0>='^' && LA1_0<='_')||(LA1_0>='a' && LA1_0<='z')) ) {
+                int alt1=5;
+                switch ( input.LA(1) ) {
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                case 'H':
+                case 'I':
+                case 'J':
+                case 'K':
+                case 'L':
+                case 'M':
+                case 'N':
+                case 'O':
+                case 'P':
+                case 'Q':
+                case 'R':
+                case 'S':
+                case 'T':
+                case 'U':
+                case 'V':
+                case 'W':
+                case 'X':
+                case 'Y':
+                case 'Z':
+                case '^':
+                case '_':
+                case 'a':
+                case 'b':
+                case 'c':
+                case 'd':
+                case 'e':
+                case 'f':
+                case 'g':
+                case 'h':
+                case 'i':
+                case 'j':
+                case 'k':
+                case 'l':
+                case 'm':
+                case 'n':
+                case 'o':
+                case 'p':
+                case 'q':
+                case 'r':
+                case 's':
+                case 't':
+                case 'u':
+                case 'v':
+                case 'w':
+                case 'x':
+                case 'y':
+                case 'z':
+                    {
                     alt1=1;
-                }
-                else if ( (LA1_0=='\t'||LA1_0==' ') ) {
+                    }
+                    break;
+                case '\t':
+                case ' ':
+                    {
                     alt1=2;
-                }
+                    }
+                    break;
+                case '!':
+                    {
+                    alt1=3;
+                    }
+                    break;
+                case '?':
+                    {
+                    alt1=4;
+                    }
+                    break;
 
+                }
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:556:44: RULE_ID
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:44: RULE_ID
             	    {
             	    mRULE_ID(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:556:52: RULE_WS
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:52: RULE_WS
             	    {
             	    mRULE_WS(); 
 
             	    }
             	    break;
+            	case 3 :
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:60: '!'
+            	    {
+            	    match('!'); 
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:603:64: '?'
+            	    {
+            	    match('?'); 
+
+            	    }
+            	    break;
 
             	default :
-            	    break loop1;
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
                 }
+                cnt1++;
             } while (true);
 
 
@@ -229,80 +338,27 @@ public class InternalMarkdownLexer extends Lexer {
     }
     // $ANTLR end "RULE_TEXT"
 
-    // $ANTLR start "RULE_HEADER_VALUE"
-    public final void mRULE_HEADER_VALUE() throws RecognitionException {
-        try {
-            int _type = RULE_HEADER_VALUE;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:558:19: ( ' ' (~ ( ( '\\n' | '\\r' ) ) )* )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:558:21: ' ' (~ ( ( '\\n' | '\\r' ) ) )*
-            {
-            match(' '); 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:558:25: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop2:
-            do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
-
-                if ( ((LA2_0>='\u0000' && LA2_0<='\t')||(LA2_0>='\u000B' && LA2_0<='\f')||(LA2_0>='\u000E' && LA2_0<='\uFFFF')) ) {
-                    alt2=1;
-                }
-
-
-                switch (alt2) {
-            	case 1 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:558:25: ~ ( ( '\\n' | '\\r' ) )
-            	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop2;
-                }
-            } while (true);
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_HEADER_VALUE"
-
     // $ANTLR start "RULE_WS"
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:560:9: ( ( ' ' | '\\t' )+ )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:560:11: ( ' ' | '\\t' )+
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:605:9: ( ( ' ' | '\\t' )+ )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:605:11: ( ' ' | '\\t' )+
             {
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:560:11: ( ' ' | '\\t' )+
-            int cnt3=0;
-            loop3:
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:605:11: ( ' ' | '\\t' )+
+            int cnt2=0;
+            loop2:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-                if ( (LA3_0=='\t'||LA3_0==' ') ) {
-                    alt3=1;
+                if ( (LA2_0=='\t'||LA2_0==' ') ) {
+                    alt2=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt2) {
             	case 1 :
             	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:
             	    {
@@ -320,12 +376,12 @@ public class InternalMarkdownLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
+            	    if ( cnt2 >= 1 ) break loop2;
                         EarlyExitException eee =
-                            new EarlyExitException(3, input);
+                            new EarlyExitException(2, input);
                         throw eee;
                 }
-                cnt3++;
+                cnt2++;
             } while (true);
 
 
@@ -344,19 +400,19 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:562:14: ( ( '\\r' )? '\\n' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:562:16: ( '\\r' )? '\\n'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:607:14: ( ( '\\r' )? '\\n' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:607:16: ( '\\r' )? '\\n'
             {
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:562:16: ( '\\r' )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:607:16: ( '\\r' )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA4_0=='\r') ) {
-                alt4=1;
+            if ( (LA3_0=='\r') ) {
+                alt3=1;
             }
-            switch (alt4) {
+            switch (alt3) {
                 case 1 :
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:562:16: '\\r'
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:607:16: '\\r'
                     {
                     match('\r'); 
 
@@ -382,19 +438,19 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:564:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:564:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:609:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:609:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:564:11: ( '^' )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:609:11: ( '^' )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA5_0=='^') ) {
-                alt5=1;
+            if ( (LA4_0=='^') ) {
+                alt4=1;
             }
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:564:11: '^'
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:609:11: '^'
                     {
                     match('^'); 
 
@@ -412,18 +468,18 @@ public class InternalMarkdownLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:564:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop6:
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:609:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            loop5:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( ((LA6_0>='0' && LA6_0<='9')||(LA6_0>='A' && LA6_0<='Z')||LA6_0=='_'||(LA6_0>='a' && LA6_0<='z')) ) {
-                    alt6=1;
+                if ( ((LA5_0>='0' && LA5_0<='9')||(LA5_0>='A' && LA5_0<='Z')||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt5) {
             	case 1 :
             	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:
             	    {
@@ -441,7 +497,7 @@ public class InternalMarkdownLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop5;
                 }
             } while (true);
 
@@ -461,24 +517,24 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:566:10: ( ( '0' .. '9' )+ )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:566:12: ( '0' .. '9' )+
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:611:10: ( ( '0' .. '9' )+ )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:611:12: ( '0' .. '9' )+
             {
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:566:12: ( '0' .. '9' )+
-            int cnt7=0;
-            loop7:
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:611:12: ( '0' .. '9' )+
+            int cnt6=0;
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA7_0>='0' && LA7_0<='9')) ) {
-                    alt7=1;
+                if ( ((LA6_0>='0' && LA6_0<='9')) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:566:13: '0' .. '9'
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:611:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -486,12 +542,12 @@ public class InternalMarkdownLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt7 >= 1 ) break loop7;
+            	    if ( cnt6 >= 1 ) break loop6;
                         EarlyExitException eee =
-                            new EarlyExitException(7, input);
+                            new EarlyExitException(6, input);
                         throw eee;
                 }
-                cnt7++;
+                cnt6++;
             } while (true);
 
 
@@ -510,47 +566,47 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA10_0=='\"') ) {
-                alt10=1;
+            if ( (LA9_0=='\"') ) {
+                alt9=1;
             }
-            else if ( (LA10_0=='\'') ) {
-                alt10=2;
+            else if ( (LA9_0=='\'') ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt10) {
+            switch (alt9) {
                 case 1 :
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop8:
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    loop7:
                     do {
-                        int alt8=3;
-                        int LA8_0 = input.LA(1);
+                        int alt7=3;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA8_0=='\\') ) {
-                            alt8=1;
+                        if ( (LA7_0=='\\') ) {
+                            alt7=1;
                         }
-                        else if ( ((LA8_0>='\u0000' && LA8_0<='!')||(LA8_0>='#' && LA8_0<='[')||(LA8_0>=']' && LA8_0<='\uFFFF')) ) {
-                            alt8=2;
+                        else if ( ((LA7_0>='\u0000' && LA7_0<='!')||(LA7_0>='#' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
+                            alt7=2;
                         }
 
 
-                        switch (alt8) {
+                        switch (alt7) {
                     	case 1 :
-                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:21: '\\\\' .
+                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -558,7 +614,7 @@ public class InternalMarkdownLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -574,7 +630,7 @@ public class InternalMarkdownLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop8;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -583,26 +639,26 @@ public class InternalMarkdownLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop9:
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    loop8:
                     do {
-                        int alt9=3;
-                        int LA9_0 = input.LA(1);
+                        int alt8=3;
+                        int LA8_0 = input.LA(1);
 
-                        if ( (LA9_0=='\\') ) {
-                            alt9=1;
+                        if ( (LA8_0=='\\') ) {
+                            alt8=1;
                         }
-                        else if ( ((LA9_0>='\u0000' && LA9_0<='&')||(LA9_0>='(' && LA9_0<='[')||(LA9_0>=']' && LA9_0<='\uFFFF')) ) {
-                            alt9=2;
+                        else if ( ((LA8_0>='\u0000' && LA8_0<='&')||(LA8_0>='(' && LA8_0<='[')||(LA8_0>=']' && LA8_0<='\uFFFF')) ) {
+                            alt8=2;
                         }
 
 
-                        switch (alt9) {
+                        switch (alt8) {
                     	case 1 :
-                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:54: '\\\\' .
+                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -610,7 +666,7 @@ public class InternalMarkdownLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:568:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:613:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -626,7 +682,7 @@ public class InternalMarkdownLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop9;
+                    	    break loop8;
                         }
                     } while (true);
 
@@ -653,37 +709,37 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:570:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:570:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:615:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:615:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:570:24: ( options {greedy=false; } : . )*
-            loop11:
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:615:24: ( options {greedy=false; } : . )*
+            loop10:
             do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA11_0=='*') ) {
-                    int LA11_1 = input.LA(2);
+                if ( (LA10_0=='*') ) {
+                    int LA10_1 = input.LA(2);
 
-                    if ( (LA11_1=='/') ) {
-                        alt11=2;
+                    if ( (LA10_1=='/') ) {
+                        alt10=2;
                     }
-                    else if ( ((LA11_1>='\u0000' && LA11_1<='.')||(LA11_1>='0' && LA11_1<='\uFFFF')) ) {
-                        alt11=1;
+                    else if ( ((LA10_1>='\u0000' && LA10_1<='.')||(LA10_1>='0' && LA10_1<='\uFFFF')) ) {
+                        alt10=1;
                     }
 
 
                 }
-                else if ( ((LA11_0>='\u0000' && LA11_0<=')')||(LA11_0>='+' && LA11_0<='\uFFFF')) ) {
-                    alt11=1;
+                else if ( ((LA10_0>='\u0000' && LA10_0<=')')||(LA10_0>='+' && LA10_0<='\uFFFF')) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt11) {
+                switch (alt10) {
             	case 1 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:570:52: .
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:615:52: .
             	    {
             	    matchAny(); 
 
@@ -691,7 +747,7 @@ public class InternalMarkdownLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop11;
+            	    break loop10;
                 }
             } while (true);
 
@@ -713,25 +769,25 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:24: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop12:
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            loop11:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( ((LA12_0>='\u0000' && LA12_0<='\t')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\uFFFF')) ) {
-                    alt12=1;
+                if ( ((LA11_0>='\u0000' && LA11_0<='\t')||(LA11_0>='\u000B' && LA11_0<='\f')||(LA11_0>='\u000E' && LA11_0<='\uFFFF')) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt11) {
             	case 1 :
-            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -747,31 +803,31 @@ public class InternalMarkdownLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop11;
                 }
             } while (true);
 
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:40: ( ( '\\r' )? '\\n' )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:40: ( ( '\\r' )? '\\n' )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA14_0=='\n'||LA14_0=='\r') ) {
-                alt14=1;
+            if ( (LA13_0=='\n'||LA13_0=='\r') ) {
+                alt13=1;
             }
-            switch (alt14) {
+            switch (alt13) {
                 case 1 :
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:41: ( '\\r' )? '\\n'
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:41: ( '\\r' )?
-                    int alt13=2;
-                    int LA13_0 = input.LA(1);
+                    // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:41: ( '\\r' )?
+                    int alt12=2;
+                    int LA12_0 = input.LA(1);
 
-                    if ( (LA13_0=='\r') ) {
-                        alt13=1;
+                    if ( (LA12_0=='\r') ) {
+                        alt12=1;
                     }
-                    switch (alt13) {
+                    switch (alt12) {
                         case 1 :
-                            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:572:41: '\\r'
+                            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:617:41: '\\r'
                             {
                             match('\r'); 
 
@@ -803,8 +859,8 @@ public class InternalMarkdownLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:574:16: ( . )
-            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:574:18: .
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:619:16: ( . )
+            // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:619:18: .
             {
             matchAny(); 
 
@@ -819,117 +875,117 @@ public class InternalMarkdownLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_TEXT | RULE_HEADER_VALUE | RULE_WS | RULE_NEWLINE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_ANY_OTHER )
-        int alt15=16;
-        alt15 = dfa15.predict(input);
-        switch (alt15) {
+        // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_TEXT | RULE_WS | RULE_NEWLINE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_ANY_OTHER )
+        int alt14=16;
+        alt14 = dfa14.predict(input);
+        switch (alt14) {
             case 1 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:10: T__14
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:10: T__13
+                {
+                mT__13(); 
+
+                }
+                break;
+            case 2 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:16: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
-            case 2 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:16: T__15
+            case 3 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:22: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
-            case 3 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:22: T__16
+            case 4 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:28: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
-            case 4 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:28: T__17
+            case 5 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:34: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
-            case 5 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:34: T__18
+            case 6 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:40: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 6 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:40: T__19
+            case 7 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:46: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 7 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:46: RULE_TEXT
+            case 8 :
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:52: RULE_TEXT
                 {
                 mRULE_TEXT(); 
 
                 }
                 break;
-            case 8 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:56: RULE_HEADER_VALUE
-                {
-                mRULE_HEADER_VALUE(); 
-
-                }
-                break;
             case 9 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:74: RULE_WS
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:62: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 10 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:82: RULE_NEWLINE
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:70: RULE_NEWLINE
                 {
                 mRULE_NEWLINE(); 
 
                 }
                 break;
             case 11 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:95: RULE_ID
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:83: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 12 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:103: RULE_INT
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:91: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 13 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:112: RULE_STRING
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:100: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 14 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:124: RULE_ML_COMMENT
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:112: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 15 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:140: RULE_SL_COMMENT
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:128: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 16 :
-                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:156: RULE_ANY_OTHER
+                // ../org.xtext.example.markdown/src-gen/org/xtext/example/markdown/parser/antlr/internal/InternalMarkdown.g:1:144: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -941,166 +997,162 @@ public class InternalMarkdownLexer extends Lexer {
     }
 
 
-    protected DFA15 dfa15 = new DFA15(this);
-    static final String DFA15_eotS =
-        "\1\uffff\1\21\1\23\1\27\1\25\1\33\1\uffff\1\17\1\uffff\1\25\2\uffff"+
-        "\3\17\5\uffff\1\43\1\uffff\1\25\2\uffff\1\25\1\33\7\uffff\1\25\1"+
-        "\uffff\1\25";
-    static final String DFA15_eofS =
-        "\45\uffff";
-    static final String DFA15_minS =
-        "\1\0\1\43\1\52\1\11\1\101\1\11\1\uffff\1\12\1\uffff\1\60\2\uffff"+
-        "\2\0\1\52\5\uffff\1\11\1\uffff\1\60\2\uffff\1\60\1\11\7\uffff\1"+
-        "\60\1\uffff\1\60";
-    static final String DFA15_maxS =
-        "\1\uffff\1\43\1\52\2\172\1\40\1\uffff\1\12\1\uffff\1\172\2\uffff"+
-        "\2\uffff\1\57\5\uffff\1\172\1\uffff\1\172\2\uffff\1\172\1\40\7\uffff"+
-        "\1\172\1\uffff\1\172";
-    static final String DFA15_acceptS =
-        "\6\uffff\1\11\1\uffff\1\12\1\uffff\1\7\1\14\3\uffff\1\20\1\2\1"+
-        "\1\1\5\1\3\1\uffff\1\7\1\uffff\1\4\1\13\2\uffff\1\10\1\11\1\12\1"+
-        "\14\1\15\1\16\1\17\1\uffff\1\6\1\uffff";
-    static final String DFA15_specialS =
-        "\1\1\13\uffff\1\2\1\0\27\uffff}>";
-    static final String[] DFA15_transitionS = {
-            "\11\17\1\6\1\10\2\17\1\7\22\17\1\5\1\17\1\14\1\1\3\17\1\15"+
-            "\2\17\1\2\4\17\1\16\12\13\7\17\32\11\3\12\1\4\1\3\1\12\32\11"+
-            "\153\12\uff1a\17",
-            "\1\20",
-            "\1\22",
-            "\1\25\26\uffff\1\25\17\uffff\12\30\7\uffff\32\26\3\uffff\1"+
-            "\25\1\24\1\uffff\32\26",
-            "\32\31\4\uffff\1\31\1\uffff\32\31",
-            "\1\32\26\uffff\1\32",
+    protected DFA14 dfa14 = new DFA14(this);
+    static final String DFA14_eotS =
+        "\1\uffff\1\16\1\23\1\25\1\16\1\uffff\1\16\1\uffff\1\30\1\16\1\uffff"+
+        "\3\16\6\uffff\1\40\1\uffff\1\27\2\uffff\1\27\7\uffff\2\27";
+    static final String DFA14_eofS =
+        "\43\uffff";
+    static final String DFA14_minS =
+        "\1\0\2\40\2\11\1\uffff\1\12\1\uffff\2\11\1\uffff\2\0\1\52\6\uffff"+
+        "\1\11\1\uffff\1\60\2\uffff\1\60\7\uffff\2\60";
+    static final String DFA14_maxS =
+        "\1\uffff\1\43\1\52\2\172\1\uffff\1\12\1\uffff\2\172\1\uffff\2\uffff"+
+        "\1\57\6\uffff\1\172\1\uffff\1\172\2\uffff\1\172\7\uffff\2\172";
+    static final String DFA14_acceptS =
+        "\5\uffff\1\11\1\uffff\1\12\2\uffff\1\14\3\uffff\1\20\1\1\1\2\1"+
+        "\4\1\6\1\3\1\uffff\1\5\1\uffff\1\10\1\13\1\uffff\1\11\1\12\1\14"+
+        "\1\15\1\16\1\17\1\7\2\uffff";
+    static final String DFA14_specialS =
+        "\1\1\12\uffff\1\2\1\0\26\uffff}>";
+    static final String[] DFA14_transitionS = {
+            "\11\16\1\5\1\7\2\16\1\6\22\16\1\5\1\16\1\13\1\1\3\16\1\14\2"+
+            "\16\1\2\4\16\1\15\12\12\7\16\32\10\3\11\1\4\1\3\1\11\32\10\153"+
+            "\11\uff1a\16",
+            "\1\17\2\uffff\1\20",
+            "\1\21\11\uffff\1\22",
+            "\1\27\26\uffff\2\27\16\uffff\12\30\5\uffff\1\27\1\uffff\32"+
+            "\26\3\uffff\1\27\1\24\1\uffff\32\26",
+            "\1\27\26\uffff\2\27\35\uffff\1\27\1\uffff\32\31\3\uffff\1"+
+            "\27\1\31\1\uffff\32\31",
             "",
-            "\1\35",
+            "\1\33",
             "",
-            "\12\30\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+            "\1\27\26\uffff\2\27\35\uffff\1\27\1\uffff\32\26\3\uffff\1"+
+            "\27\1\26\1\uffff\32\26",
+            "\1\27\26\uffff\2\27\35\uffff\1\27\1\uffff\32\27\3\uffff\2"+
+            "\27\1\uffff\32\27",
             "",
-            "",
-            "\0\37",
-            "\0\37",
-            "\1\40\4\uffff\1\41",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\25\26\uffff\1\25\17\uffff\12\44\7\uffff\32\42\3\uffff\1"+
-            "\25\1\42\1\uffff\32\42",
-            "",
-            "\12\44\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
-            "",
-            "",
-            "\12\44\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
-            "\1\32\26\uffff\1\32",
+            "\0\35",
+            "\0\35",
+            "\1\36\4\uffff\1\37",
             "",
             "",
             "",
             "",
             "",
             "",
+            "\1\27\26\uffff\2\27\16\uffff\12\42\5\uffff\1\27\1\uffff\32"+
+            "\41\3\uffff\1\27\1\41\1\uffff\32\41",
             "",
-            "\12\44\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
-            "\12\44\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42"
+            "",
+            "\12\42\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\12\42\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\42\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41"
     };
 
-    static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
-    static final short[] DFA15_eof = DFA.unpackEncodedString(DFA15_eofS);
-    static final char[] DFA15_min = DFA.unpackEncodedStringToUnsignedChars(DFA15_minS);
-    static final char[] DFA15_max = DFA.unpackEncodedStringToUnsignedChars(DFA15_maxS);
-    static final short[] DFA15_accept = DFA.unpackEncodedString(DFA15_acceptS);
-    static final short[] DFA15_special = DFA.unpackEncodedString(DFA15_specialS);
-    static final short[][] DFA15_transition;
+    static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
+    static final short[] DFA14_eof = DFA.unpackEncodedString(DFA14_eofS);
+    static final char[] DFA14_min = DFA.unpackEncodedStringToUnsignedChars(DFA14_minS);
+    static final char[] DFA14_max = DFA.unpackEncodedStringToUnsignedChars(DFA14_maxS);
+    static final short[] DFA14_accept = DFA.unpackEncodedString(DFA14_acceptS);
+    static final short[] DFA14_special = DFA.unpackEncodedString(DFA14_specialS);
+    static final short[][] DFA14_transition;
 
     static {
-        int numStates = DFA15_transitionS.length;
-        DFA15_transition = new short[numStates][];
+        int numStates = DFA14_transitionS.length;
+        DFA14_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA15_transition[i] = DFA.unpackEncodedString(DFA15_transitionS[i]);
+            DFA14_transition[i] = DFA.unpackEncodedString(DFA14_transitionS[i]);
         }
     }
 
-    class DFA15 extends DFA {
+    class DFA14 extends DFA {
 
-        public DFA15(BaseRecognizer recognizer) {
+        public DFA14(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 15;
-            this.eot = DFA15_eot;
-            this.eof = DFA15_eof;
-            this.min = DFA15_min;
-            this.max = DFA15_max;
-            this.accept = DFA15_accept;
-            this.special = DFA15_special;
-            this.transition = DFA15_transition;
+            this.decisionNumber = 14;
+            this.eot = DFA14_eot;
+            this.eof = DFA14_eof;
+            this.min = DFA14_min;
+            this.max = DFA14_max;
+            this.accept = DFA14_accept;
+            this.special = DFA14_special;
+            this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_TEXT | RULE_HEADER_VALUE | RULE_WS | RULE_NEWLINE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_TEXT | RULE_WS | RULE_NEWLINE | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA15_13 = input.LA(1);
+                        int LA14_12 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA15_13>='\u0000' && LA15_13<='\uFFFF')) ) {s = 31;}
+                        if ( ((LA14_12>='\u0000' && LA14_12<='\uFFFF')) ) {s = 29;}
 
-                        else s = 15;
+                        else s = 14;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA15_0 = input.LA(1);
+                        int LA14_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA15_0=='#') ) {s = 1;}
+                        if ( (LA14_0=='#') ) {s = 1;}
 
-                        else if ( (LA15_0=='*') ) {s = 2;}
+                        else if ( (LA14_0=='*') ) {s = 2;}
 
-                        else if ( (LA15_0=='_') ) {s = 3;}
+                        else if ( (LA14_0=='_') ) {s = 3;}
 
-                        else if ( (LA15_0=='^') ) {s = 4;}
+                        else if ( (LA14_0=='^') ) {s = 4;}
 
-                        else if ( (LA15_0==' ') ) {s = 5;}
+                        else if ( (LA14_0=='\t'||LA14_0==' ') ) {s = 5;}
 
-                        else if ( (LA15_0=='\t') ) {s = 6;}
+                        else if ( (LA14_0=='\r') ) {s = 6;}
 
-                        else if ( (LA15_0=='\r') ) {s = 7;}
+                        else if ( (LA14_0=='\n') ) {s = 7;}
 
-                        else if ( (LA15_0=='\n') ) {s = 8;}
+                        else if ( ((LA14_0>='A' && LA14_0<='Z')||(LA14_0>='a' && LA14_0<='z')) ) {s = 8;}
 
-                        else if ( ((LA15_0>='A' && LA15_0<='Z')||(LA15_0>='a' && LA15_0<='z')) ) {s = 9;}
+                        else if ( ((LA14_0>='[' && LA14_0<=']')||LA14_0=='`'||(LA14_0>='{' && LA14_0<='\u00E5')) ) {s = 9;}
 
-                        else if ( ((LA15_0>='[' && LA15_0<=']')||LA15_0=='`'||(LA15_0>='{' && LA15_0<='\u00E5')) ) {s = 10;}
+                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 10;}
 
-                        else if ( ((LA15_0>='0' && LA15_0<='9')) ) {s = 11;}
+                        else if ( (LA14_0=='\"') ) {s = 11;}
 
-                        else if ( (LA15_0=='\"') ) {s = 12;}
+                        else if ( (LA14_0=='\'') ) {s = 12;}
 
-                        else if ( (LA15_0=='\'') ) {s = 13;}
+                        else if ( (LA14_0=='/') ) {s = 13;}
 
-                        else if ( (LA15_0=='/') ) {s = 14;}
-
-                        else if ( ((LA15_0>='\u0000' && LA15_0<='\b')||(LA15_0>='\u000B' && LA15_0<='\f')||(LA15_0>='\u000E' && LA15_0<='\u001F')||LA15_0=='!'||(LA15_0>='$' && LA15_0<='&')||(LA15_0>='(' && LA15_0<=')')||(LA15_0>='+' && LA15_0<='.')||(LA15_0>=':' && LA15_0<='@')||(LA15_0>='\u00E6' && LA15_0<='\uFFFF')) ) {s = 15;}
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='$' && LA14_0<='&')||(LA14_0>='(' && LA14_0<=')')||(LA14_0>='+' && LA14_0<='.')||(LA14_0>=':' && LA14_0<='@')||(LA14_0>='\u00E6' && LA14_0<='\uFFFF')) ) {s = 14;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA15_12 = input.LA(1);
+                        int LA14_11 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA15_12>='\u0000' && LA15_12<='\uFFFF')) ) {s = 31;}
+                        if ( ((LA14_11>='\u0000' && LA14_11<='\uFFFF')) ) {s = 29;}
 
-                        else s = 15;
+                        else s = 14;
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 15, _s, input);
+                new NoViableAltException(getDescription(), 14, _s, input);
             error(nvae);
             throw nvae;
         }

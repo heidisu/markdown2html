@@ -86,6 +86,13 @@ public class MarkdownSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MarkdownPackage.TEXT_BLOCK:
+      {
+        TextBlock textBlock = (TextBlock)theEObject;
+        T result = caseTextBlock(textBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MarkdownPackage.HEADER1:
       {
         Header1 header1 = (Header1)theEObject;
@@ -153,6 +160,22 @@ public class MarkdownSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContent(Content object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTextBlock(TextBlock object)
   {
     return null;
   }

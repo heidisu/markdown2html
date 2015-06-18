@@ -2,20 +2,15 @@
  */
 package org.xtext.example.markdown.markdown.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.markdown.markdown.Content;
 import org.xtext.example.markdown.markdown.MarkdownPackage;
@@ -36,14 +31,14 @@ import org.xtext.example.markdown.markdown.MarkdownPackage;
 public class ContentImpl extends MinimalEObjectImpl.Container implements Content
 {
   /**
-   * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference list.
+   * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEntity()
    * @generated
    * @ordered
    */
-  protected EList<EObject> entity;
+  protected EObject entity;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +66,47 @@ public class ContentImpl extends MinimalEObjectImpl.Container implements Content
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EObject> getEntity()
+  public EObject getEntity()
   {
-    if (entity == null)
-    {
-      entity = new EObjectContainmentEList<EObject>(EObject.class, this, MarkdownPackage.CONTENT__ENTITY);
-    }
     return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEntity(EObject newEntity, NotificationChain msgs)
+  {
+    EObject oldEntity = entity;
+    entity = newEntity;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MarkdownPackage.CONTENT__ENTITY, oldEntity, newEntity);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEntity(EObject newEntity)
+  {
+    if (newEntity != entity)
+    {
+      NotificationChain msgs = null;
+      if (entity != null)
+        msgs = ((InternalEObject)entity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MarkdownPackage.CONTENT__ENTITY, null, msgs);
+      if (newEntity != null)
+        msgs = ((InternalEObject)newEntity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MarkdownPackage.CONTENT__ENTITY, null, msgs);
+      msgs = basicSetEntity(newEntity, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MarkdownPackage.CONTENT__ENTITY, newEntity, newEntity));
   }
 
   /**
@@ -91,7 +120,7 @@ public class ContentImpl extends MinimalEObjectImpl.Container implements Content
     switch (featureID)
     {
       case MarkdownPackage.CONTENT__ENTITY:
-        return ((InternalEList<?>)getEntity()).basicRemove(otherEnd, msgs);
+        return basicSetEntity(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -117,15 +146,13 @@ public class ContentImpl extends MinimalEObjectImpl.Container implements Content
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case MarkdownPackage.CONTENT__ENTITY:
-        getEntity().clear();
-        getEntity().addAll((Collection<? extends EObject>)newValue);
+        setEntity((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +169,7 @@ public class ContentImpl extends MinimalEObjectImpl.Container implements Content
     switch (featureID)
     {
       case MarkdownPackage.CONTENT__ENTITY:
-        getEntity().clear();
+        setEntity((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -159,7 +186,7 @@ public class ContentImpl extends MinimalEObjectImpl.Container implements Content
     switch (featureID)
     {
       case MarkdownPackage.CONTENT__ENTITY:
-        return entity != null && !entity.isEmpty();
+        return entity != null;
     }
     return super.eIsSet(featureID);
   }

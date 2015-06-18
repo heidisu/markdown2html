@@ -20,6 +20,7 @@ import org.xtext.example.markdown.markdown.Header2;
 import org.xtext.example.markdown.markdown.Italic;
 import org.xtext.example.markdown.markdown.Markdown;
 import org.xtext.example.markdown.markdown.PlainText;
+import org.xtext.example.markdown.markdown.TextBlock;
 
 /**
  * Generates code from your model files on save.
@@ -57,12 +58,8 @@ public class MarkdownGenerator implements IGenerator {
   }
   
   protected String _generate(final Content content) {
-    EList<EObject> _entity = content.getEntity();
-    final Function1<EObject, String> _function = (EObject it) -> {
-      return this.generate(it);
-    };
-    List<String> _map = ListExtensions.<EObject, String>map(_entity, _function);
-    return IterableExtensions.join(_map);
+    EObject _entity = content.getEntity();
+    return this.generate(_entity);
   }
   
   protected String _generate(final Header1 header1) {
@@ -75,6 +72,15 @@ public class MarkdownGenerator implements IGenerator {
     String _value = header2.getValue();
     String _plus = ("<h2>" + _value);
     return (_plus + "</h2>");
+  }
+  
+  protected String _generate(final TextBlock textblock) {
+    EList<EObject> _text = textblock.getText();
+    final Function1<EObject, String> _function = (EObject it) -> {
+      return this.generate(it);
+    };
+    List<String> _map = ListExtensions.<EObject, String>map(_text, _function);
+    return IterableExtensions.join(_map);
   }
   
   protected String _generate(final Bold bold) {
@@ -118,6 +124,8 @@ public class MarkdownGenerator implements IGenerator {
       return _generate((Italic)content);
     } else if (content instanceof PlainText) {
       return _generate((PlainText)content);
+    } else if (content instanceof TextBlock) {
+      return _generate((TextBlock)content);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(content).toString());

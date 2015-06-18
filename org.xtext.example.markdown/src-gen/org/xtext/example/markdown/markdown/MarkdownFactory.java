@@ -41,6 +41,15 @@ public interface MarkdownFactory extends EFactory
   Content createContent();
 
   /**
+   * Returns a new object of class '<em>Text Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text Block</em>'.
+   * @generated
+   */
+  TextBlock createTextBlock();
+
+  /**
    * Returns a new object of class '<em>Header1</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

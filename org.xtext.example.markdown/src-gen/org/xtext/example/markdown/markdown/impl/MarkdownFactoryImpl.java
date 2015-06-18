@@ -66,6 +66,7 @@ public class MarkdownFactoryImpl extends EFactoryImpl implements MarkdownFactory
     {
       case MarkdownPackage.MARKDOWN: return createMarkdown();
       case MarkdownPackage.CONTENT: return createContent();
+      case MarkdownPackage.TEXT_BLOCK: return createTextBlock();
       case MarkdownPackage.HEADER1: return createHeader1();
       case MarkdownPackage.HEADER2: return createHeader2();
       case MarkdownPackage.PLAIN_TEXT: return createPlainText();
@@ -96,6 +97,17 @@ public class MarkdownFactoryImpl extends EFactoryImpl implements MarkdownFactory
   {
     ContentImpl content = new ContentImpl();
     return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TextBlock createTextBlock()
+  {
+    TextBlockImpl textBlock = new TextBlockImpl();
+    return textBlock;
   }
 
   /**

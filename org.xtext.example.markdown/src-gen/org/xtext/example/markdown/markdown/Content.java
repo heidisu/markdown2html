@@ -2,8 +2,6 @@
  */
 package org.xtext.example.markdown.markdown;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,19 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Content extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Entity</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Entity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Entity</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Entity</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Entity</em>' containment reference list.
+   * @return the value of the '<em>Entity</em>' containment reference.
+   * @see #setEntity(EObject)
    * @see org.xtext.example.markdown.markdown.MarkdownPackage#getContent_Entity()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getEntity();
+  EObject getEntity();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.markdown.markdown.Content#getEntity <em>Entity</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entity</em>' containment reference.
+   * @see #getEntity()
+   * @generated
+   */
+  void setEntity(EObject value);
 
 } // Content

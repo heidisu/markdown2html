@@ -24,6 +24,7 @@ import org.xtext.example.markdown.markdown.Italic;
 import org.xtext.example.markdown.markdown.Markdown;
 import org.xtext.example.markdown.markdown.MarkdownPackage;
 import org.xtext.example.markdown.markdown.PlainText;
+import org.xtext.example.markdown.markdown.TextBlock;
 import org.xtext.example.markdown.services.MarkdownGrammarAccess;
 
 @SuppressWarnings("all")
@@ -56,6 +57,9 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case MarkdownPackage.PLAIN_TEXT:
 				sequence_PlainText(context, (PlainText) semanticObject); 
 				return; 
+			case MarkdownPackage.TEXT_BLOCK:
+				sequence_TextBlock(context, (TextBlock) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -71,7 +75,7 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (entity+=Header1 | entity+=Header2 | entity+=Italic | entity+=Bold | entity+=PlainText)+
+	 *     (entity=Header1 | entity=Header2 | entity=TextBlock)
 	 */
 	protected void sequence_Content(EObject context, Content semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -80,7 +84,7 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     value=HEADER_VALUE
+	 *     value=TEXT
 	 */
 	protected void sequence_Header1(EObject context, Header1 semanticObject) {
 		if(errorAcceptor != null) {
@@ -89,14 +93,14 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHeader1Access().getValueHEADER_VALUETerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getHeader1Access().getValueTEXTTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     value=HEADER_VALUE
+	 *     value=TEXT
 	 */
 	protected void sequence_Header2(EObject context, Header2 semanticObject) {
 		if(errorAcceptor != null) {
@@ -105,7 +109,7 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHeader2Access().getValueHEADER_VALUETerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getHeader2Access().getValueTEXTTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -141,5 +145,14 @@ public class MarkdownSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getPlainTextAccess().getValueTEXTTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (text+=PlainText | text+=Italic | text+=Bold)+
+	 */
+	protected void sequence_TextBlock(EObject context, TextBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

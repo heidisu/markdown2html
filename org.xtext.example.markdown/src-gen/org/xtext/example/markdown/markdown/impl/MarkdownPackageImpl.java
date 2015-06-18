@@ -18,6 +18,7 @@ import org.xtext.example.markdown.markdown.Markdown;
 import org.xtext.example.markdown.markdown.MarkdownFactory;
 import org.xtext.example.markdown.markdown.MarkdownPackage;
 import org.xtext.example.markdown.markdown.PlainText;
+import org.xtext.example.markdown.markdown.TextBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,13 @@ public class MarkdownPackageImpl extends EPackageImpl implements MarkdownPackage
    * @generated
    */
   private EClass contentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textBlockEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -184,6 +192,26 @@ public class MarkdownPackageImpl extends EPackageImpl implements MarkdownPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTextBlock()
+  {
+    return textBlockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTextBlock_Text()
+  {
+    return (EReference)textBlockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getHeader1()
   {
     return header1EClass;
@@ -315,6 +343,9 @@ public class MarkdownPackageImpl extends EPackageImpl implements MarkdownPackage
     contentEClass = createEClass(CONTENT);
     createEReference(contentEClass, CONTENT__ENTITY);
 
+    textBlockEClass = createEClass(TEXT_BLOCK);
+    createEReference(textBlockEClass, TEXT_BLOCK__TEXT);
+
     header1EClass = createEClass(HEADER1);
     createEAttribute(header1EClass, HEADER1__VALUE);
 
@@ -366,7 +397,10 @@ public class MarkdownPackageImpl extends EPackageImpl implements MarkdownPackage
     initEReference(getMarkdown_Content(), this.getContent(), null, "content", null, 0, -1, Markdown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contentEClass, Content.class, "Content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContent_Entity(), ecorePackage.getEObject(), null, "entity", null, 0, -1, Content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContent_Entity(), ecorePackage.getEObject(), null, "entity", null, 0, 1, Content.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textBlockEClass, TextBlock.class, "TextBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTextBlock_Text(), ecorePackage.getEObject(), null, "text", null, 0, -1, TextBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(header1EClass, Header1.class, "Header1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHeader1_Value(), ecorePackage.getEString(), "value", null, 0, 1, Header1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

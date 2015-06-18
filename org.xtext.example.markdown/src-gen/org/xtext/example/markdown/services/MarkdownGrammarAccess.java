@@ -41,22 +41,20 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cEntityAlternatives_0_0 = (Alternatives)cEntityAssignment_0.eContents().get(0);
 		private final RuleCall cEntityHeader1ParserRuleCall_0_0_0 = (RuleCall)cEntityAlternatives_0_0.eContents().get(0);
 		private final RuleCall cEntityHeader2ParserRuleCall_0_0_1 = (RuleCall)cEntityAlternatives_0_0.eContents().get(1);
-		private final RuleCall cEntityItalicParserRuleCall_0_0_2 = (RuleCall)cEntityAlternatives_0_0.eContents().get(2);
-		private final RuleCall cEntityBoldParserRuleCall_0_0_3 = (RuleCall)cEntityAlternatives_0_0.eContents().get(3);
-		private final RuleCall cEntityPlainTextParserRuleCall_0_0_4 = (RuleCall)cEntityAlternatives_0_0.eContents().get(4);
+		private final RuleCall cEntityTextBlockParserRuleCall_0_0_2 = (RuleCall)cEntityAlternatives_0_0.eContents().get(2);
 		private final RuleCall cNEWLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//Content:
-		//	entity+=(Header1 | Header2 | Italic | Bold | PlainText)+ NEWLINE+;
+		//	entity=(Header1 | Header2 | TextBlock) NEWLINE+;
 		@Override public ParserRule getRule() { return rule; }
 
-		//entity+=(Header1 | Header2 | Italic | Bold | PlainText)+ NEWLINE+
+		//entity=(Header1 | Header2 | TextBlock) NEWLINE+
 		public Group getGroup() { return cGroup; }
 
-		//entity+=(Header1 | Header2 | Italic | Bold | PlainText)+
+		//entity=(Header1 | Header2 | TextBlock)
 		public Assignment getEntityAssignment_0() { return cEntityAssignment_0; }
 
-		//Header1 | Header2 | Italic | Bold | PlainText
+		//Header1 | Header2 | TextBlock
 		public Alternatives getEntityAlternatives_0_0() { return cEntityAlternatives_0_0; }
 
 		//Header1
@@ -65,65 +63,87 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		//Header2
 		public RuleCall getEntityHeader2ParserRuleCall_0_0_1() { return cEntityHeader2ParserRuleCall_0_0_1; }
 
-		//Italic
-		public RuleCall getEntityItalicParserRuleCall_0_0_2() { return cEntityItalicParserRuleCall_0_0_2; }
-
-		//Bold
-		public RuleCall getEntityBoldParserRuleCall_0_0_3() { return cEntityBoldParserRuleCall_0_0_3; }
-
-		//PlainText
-		public RuleCall getEntityPlainTextParserRuleCall_0_0_4() { return cEntityPlainTextParserRuleCall_0_0_4; }
+		//TextBlock
+		public RuleCall getEntityTextBlockParserRuleCall_0_0_2() { return cEntityTextBlockParserRuleCall_0_0_2; }
 
 		//NEWLINE+
 		public RuleCall getNEWLINETerminalRuleCall_1() { return cNEWLINETerminalRuleCall_1; }
 	}
 
+	public class TextBlockElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextBlock");
+		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTextAlternatives_0 = (Alternatives)cTextAssignment.eContents().get(0);
+		private final RuleCall cTextPlainTextParserRuleCall_0_0 = (RuleCall)cTextAlternatives_0.eContents().get(0);
+		private final RuleCall cTextItalicParserRuleCall_0_1 = (RuleCall)cTextAlternatives_0.eContents().get(1);
+		private final RuleCall cTextBoldParserRuleCall_0_2 = (RuleCall)cTextAlternatives_0.eContents().get(2);
+		
+		//TextBlock:
+		//	text+=(PlainText | Italic | Bold)+;
+		@Override public ParserRule getRule() { return rule; }
+
+		//text+=(PlainText | Italic | Bold)+
+		public Assignment getTextAssignment() { return cTextAssignment; }
+
+		//PlainText | Italic | Bold
+		public Alternatives getTextAlternatives_0() { return cTextAlternatives_0; }
+
+		//PlainText
+		public RuleCall getTextPlainTextParserRuleCall_0_0() { return cTextPlainTextParserRuleCall_0_0; }
+
+		//Italic
+		public RuleCall getTextItalicParserRuleCall_0_1() { return cTextItalicParserRuleCall_0_1; }
+
+		//Bold
+		public RuleCall getTextBoldParserRuleCall_0_2() { return cTextBoldParserRuleCall_0_2; }
+	}
+
 	public class Header1Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header1");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNumberSignSpaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueHEADER_VALUETerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueTEXTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Header1:
-		//	"#" value=HEADER_VALUE;
+		//	"# " value=TEXT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"#" value=HEADER_VALUE
+		//"# " value=TEXT
 		public Group getGroup() { return cGroup; }
 
-		//"#"
-		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
+		//"# "
+		public Keyword getNumberSignSpaceKeyword_0() { return cNumberSignSpaceKeyword_0; }
 
-		//value=HEADER_VALUE
+		//value=TEXT
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//HEADER_VALUE
-		public RuleCall getValueHEADER_VALUETerminalRuleCall_1_0() { return cValueHEADER_VALUETerminalRuleCall_1_0; }
+		//TEXT
+		public RuleCall getValueTEXTTerminalRuleCall_1_0() { return cValueTEXTTerminalRuleCall_1_0; }
 	}
 
 	public class Header2Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header2");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNumberSignNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNumberSignNumberSignSpaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueHEADER_VALUETerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueTEXTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Header2:
-		//	"##" value=HEADER_VALUE;
+		//	"## " value=TEXT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"##" value=HEADER_VALUE
+		//"## " value=TEXT
 		public Group getGroup() { return cGroup; }
 
-		//"##"
-		public Keyword getNumberSignNumberSignKeyword_0() { return cNumberSignNumberSignKeyword_0; }
+		//"## "
+		public Keyword getNumberSignNumberSignSpaceKeyword_0() { return cNumberSignNumberSignSpaceKeyword_0; }
 
-		//value=HEADER_VALUE
+		//value=TEXT
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//HEADER_VALUE
-		public RuleCall getValueHEADER_VALUETerminalRuleCall_1_0() { return cValueHEADER_VALUETerminalRuleCall_1_0; }
+		//TEXT
+		public RuleCall getValueTEXTTerminalRuleCall_1_0() { return cValueTEXTTerminalRuleCall_1_0; }
 	}
 
 	public class PlainTextElements extends AbstractParserRuleElementFinder {
@@ -151,7 +171,9 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cValueAlternatives_0_1_0 = (Alternatives)cValueAssignment_0_1.eContents().get(0);
 		private final RuleCall cValuePlainTextParserRuleCall_0_1_0_0 = (RuleCall)cValueAlternatives_0_1_0.eContents().get(0);
 		private final RuleCall cValueBoldParserRuleCall_0_1_0_1 = (RuleCall)cValueAlternatives_0_1_0.eContents().get(1);
-		private final Keyword cAsteriskKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
+		private final Keyword cAsteriskKeyword_0_2_0 = (Keyword)cAlternatives_0_2.eContents().get(0);
+		private final Keyword cAsteriskSpaceKeyword_0_2_1 = (Keyword)cAlternatives_0_2.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword c_Keyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -161,13 +183,13 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword c_Keyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//Italic:
-		//	"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_";
+		//	"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_"
+		//"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"*" value+=(PlainText | Bold)+ "*"
+		//"*" value+=(PlainText | Bold)+ ("*" | "* ")
 		public Group getGroup_0() { return cGroup_0; }
 
 		//"*"
@@ -185,8 +207,14 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		//Bold
 		public RuleCall getValueBoldParserRuleCall_0_1_0_1() { return cValueBoldParserRuleCall_0_1_0_1; }
 
+		//"*" | "* "
+		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
+
 		//"*"
-		public Keyword getAsteriskKeyword_0_2() { return cAsteriskKeyword_0_2; }
+		public Keyword getAsteriskKeyword_0_2_0() { return cAsteriskKeyword_0_2_0; }
+
+		//"* "
+		public Keyword getAsteriskSpaceKeyword_0_2_1() { return cAsteriskSpaceKeyword_0_2_1; }
 
 		//"_" value+=(PlainText | Bold)+ "_"
 		public Group getGroup_1() { return cGroup_1; }
@@ -281,13 +309,13 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final MarkdownElements pMarkdown;
 	private final ContentElements pContent;
+	private final TextBlockElements pTextBlock;
 	private final Header1Elements pHeader1;
 	private final Header2Elements pHeader2;
 	private final PlainTextElements pPlainText;
 	private final ItalicElements pItalic;
 	private final BoldElements pBold;
 	private final TerminalRule tTEXT;
-	private final TerminalRule tHEADER_VALUE;
 	private final TerminalRule tWS;
 	private final TerminalRule tNEWLINE;
 	
@@ -302,13 +330,13 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pMarkdown = new MarkdownElements();
 		this.pContent = new ContentElements();
+		this.pTextBlock = new TextBlockElements();
 		this.pHeader1 = new Header1Elements();
 		this.pHeader2 = new Header2Elements();
 		this.pPlainText = new PlainTextElements();
 		this.pItalic = new ItalicElements();
 		this.pBold = new BoldElements();
 		this.tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXT");
-		this.tHEADER_VALUE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEADER_VALUE");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
 	}
@@ -351,7 +379,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Content:
-	//	entity+=(Header1 | Header2 | Italic | Bold | PlainText)+ NEWLINE+;
+	//	entity=(Header1 | Header2 | TextBlock) NEWLINE+;
 	public ContentElements getContentAccess() {
 		return pContent;
 	}
@@ -360,8 +388,18 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		return getContentAccess().getRule();
 	}
 
+	//TextBlock:
+	//	text+=(PlainText | Italic | Bold)+;
+	public TextBlockElements getTextBlockAccess() {
+		return pTextBlock;
+	}
+	
+	public ParserRule getTextBlockRule() {
+		return getTextBlockAccess().getRule();
+	}
+
 	//Header1:
-	//	"#" value=HEADER_VALUE;
+	//	"# " value=TEXT;
 	public Header1Elements getHeader1Access() {
 		return pHeader1;
 	}
@@ -371,7 +409,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Header2:
-	//	"##" value=HEADER_VALUE;
+	//	"## " value=TEXT;
 	public Header2Elements getHeader2Access() {
 		return pHeader2;
 	}
@@ -391,7 +429,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Italic:
-	//	"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_";
+	//	"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_";
 	public ItalicElements getItalicAccess() {
 		return pItalic;
 	}
@@ -410,16 +448,13 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		return getBoldAccess().getRule();
 	}
 
+	//// ListItem:
+	////	'* ' value=TextBlock
+	//// ;
 	//terminal TEXT:
-	//	("a".."å" | "A".."Å") (ID | WS)*;
+	//	("a".."å" | "A".."Å") (ID | WS | "!" | "?")+;
 	public TerminalRule getTEXTRule() {
 		return tTEXT;
-	} 
-
-	//terminal HEADER_VALUE:
-	//	" " !("\n" | "\r")*;
-	public TerminalRule getHEADER_VALUERule() {
-		return tHEADER_VALUE;
 	} 
 
 	//terminal WS:

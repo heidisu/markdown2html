@@ -30,20 +30,20 @@ public class ParserTest {
 	public void testH1() throws Exception{
 		String text = H1PREFIX+ TEXT1;
 		Markdown markdown = parseHelper.parse(text);
-	    EObject obj =  markdown.getContent().get(0).getEntity().get(0);
+	    EObject obj =  markdown.getContent().get(0).getEntity();
 	    Assert.assertTrue(obj instanceof Header1);
 	    Header1 h2 = (Header1) obj;
-	    Assert.assertEquals(TEXT1, h2.getValue().trim());
+	    Assert.assertEquals(TEXT1, h2.getValue());
 	}
 	
 	@Test
 	public void testH2() throws Exception{
 		String text = H2PREFIX + TEXT1;
 		Markdown markdown = parseHelper.parse(text);
-	    EObject obj =  markdown.getContent().get(0).getEntity().get(0);
+	    EObject obj =  markdown.getContent().get(0).getEntity();
 	    Assert.assertTrue(obj instanceof Header2);
 	    Header2 h2 = (Header2) obj;
-	    Assert.assertEquals(TEXT1, h2.getValue().trim());
+	    Assert.assertEquals(TEXT1, h2.getValue());
 	}
 	
 	@Test

@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,11 +22,13 @@ public class MarkdownSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MarkdownGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Content_NEWLINETerminalRuleCall_1_p;
+	protected AbstractElementAlias match_Italic_AsteriskKeyword_0_2_0_or_AsteriskSpaceKeyword_0_2_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MarkdownGrammarAccess) access;
 		match_Content_NEWLINETerminalRuleCall_1_p = new TokenAlias(true, false, grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1());
+		match_Italic_AsteriskKeyword_0_2_0_or_AsteriskSpaceKeyword_0_2_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getItalicAccess().getAsteriskKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getItalicAccess().getAsteriskSpaceKeyword_0_2_1()));
 	}
 	
 	@Override
@@ -54,6 +57,8 @@ public class MarkdownSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_Content_NEWLINETerminalRuleCall_1_p.equals(syntax))
 				emit_Content_NEWLINETerminalRuleCall_1_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Italic_AsteriskKeyword_0_2_0_or_AsteriskSpaceKeyword_0_2_1.equals(syntax))
+				emit_Italic_AsteriskKeyword_0_2_0_or_AsteriskSpaceKeyword_0_2_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -63,13 +68,23 @@ public class MarkdownSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     NEWLINE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     entity+=Bold (ambiguity) (rule end)
-	 *     entity+=Header1 (ambiguity) (rule end)
-	 *     entity+=Header2 (ambiguity) (rule end)
-	 *     entity+=Italic (ambiguity) (rule end)
-	 *     entity+=PlainText (ambiguity) (rule end)
+	 *     entity=Header1 (ambiguity) (rule end)
+	 *     entity=Header2 (ambiguity) (rule end)
+	 *     entity=TextBlock (ambiguity) (rule end)
 	 */
 	protected void emit_Content_NEWLINETerminalRuleCall_1_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '*' | '* '
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     value+=Bold (ambiguity) (rule end)
+	 *     value+=PlainText (ambiguity) (rule end)
+	 */
+	protected void emit_Italic_AsteriskKeyword_0_2_0_or_AsteriskSpaceKeyword_0_2_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

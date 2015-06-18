@@ -38,8 +38,10 @@ public class MarkdownParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getContentAccess().getEntityAlternatives_0_0(), "rule__Content__EntityAlternatives_0_0");
+					put(grammarAccess.getTextBlockAccess().getTextAlternatives_0(), "rule__TextBlock__TextAlternatives_0");
 					put(grammarAccess.getItalicAccess().getAlternatives(), "rule__Italic__Alternatives");
 					put(grammarAccess.getItalicAccess().getValueAlternatives_0_1_0(), "rule__Italic__ValueAlternatives_0_1_0");
+					put(grammarAccess.getItalicAccess().getAlternatives_0_2(), "rule__Italic__Alternatives_0_2");
 					put(grammarAccess.getItalicAccess().getValueAlternatives_1_1_0(), "rule__Italic__ValueAlternatives_1_1_0");
 					put(grammarAccess.getBoldAccess().getAlternatives(), "rule__Bold__Alternatives");
 					put(grammarAccess.getBoldAccess().getValueAlternatives_0_1_0(), "rule__Bold__ValueAlternatives_0_1_0");
@@ -53,6 +55,7 @@ public class MarkdownParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBoldAccess().getGroup_1(), "rule__Bold__Group_1__0");
 					put(grammarAccess.getMarkdownAccess().getContentAssignment(), "rule__Markdown__ContentAssignment");
 					put(grammarAccess.getContentAccess().getEntityAssignment_0(), "rule__Content__EntityAssignment_0");
+					put(grammarAccess.getTextBlockAccess().getTextAssignment(), "rule__TextBlock__TextAssignment");
 					put(grammarAccess.getHeader1Access().getValueAssignment_1(), "rule__Header1__ValueAssignment_1");
 					put(grammarAccess.getHeader2Access().getValueAssignment_1(), "rule__Header2__ValueAssignment_1");
 					put(grammarAccess.getPlainTextAccess().getValueAssignment(), "rule__PlainText__ValueAssignment");

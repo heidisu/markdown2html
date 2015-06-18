@@ -85,6 +85,11 @@ public class MarkdownAdapterFactory extends AdapterFactoryImpl
         return createContentAdapter();
       }
       @Override
+      public Adapter caseTextBlock(TextBlock object)
+      {
+        return createTextBlockAdapter();
+      }
+      @Override
       public Adapter caseHeader1(Header1 object)
       {
         return createHeader1Adapter();
@@ -157,6 +162,21 @@ public class MarkdownAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.markdown.markdown.TextBlock <em>Text Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.markdown.markdown.TextBlock
+   * @generated
+   */
+  public Adapter createTextBlockAdapter()
   {
     return null;
   }

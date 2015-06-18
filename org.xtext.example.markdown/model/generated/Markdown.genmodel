@@ -13,6 +13,9 @@
     <genClasses ecoreClass="Markdown.ecore#//Content">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//Content/entity"/>
     </genClasses>
+    <genClasses ecoreClass="Markdown.ecore#//TextBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Markdown.ecore#//TextBlock/text"/>
+    </genClasses>
     <genClasses ecoreClass="Markdown.ecore#//Header1">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Markdown.ecore#//Header1/value"/>
     </genClasses>

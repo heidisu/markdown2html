@@ -7,16 +7,20 @@ Markdown:
 ;
 
 Content:
-    (entity+=(Header1|Header2|Italic|Bold|PlainText))+
+    entity=(Header1|Header2|TextBlock)
     NEWLINE+
 ;
 
+TextBlock:
+	text += (PlainText|Italic|Bold)+
+;
+
 Header1:
-    '#' value = HEADER_VALUE
+    '# ' value = TEXT
 ;
     
 Header2:
-	'##' value= HEADER_VALUE
+	'## ' value= TEXT
 ;
 
 PlainText:
@@ -24,19 +28,19 @@ PlainText:
 ;
 
 Italic:
-	(('*' value +=(PlainText|Bold)+ '*')|('_' value +=(PlainText|Bold)+ '_')) 
+	(('*' value +=(PlainText|Bold)+ ('*'|'* '))|('_' value +=(PlainText|Bold)+ '_')) 
 ;
 
 Bold:
 	(('**' value += (PlainText|Italic)+'**') | ('__' value +=(PlainText|Italic)+ '__')) 
 ;
 
-terminal TEXT:
-	('a'..'å' | 'A'..'Å') (ID|WS)*
-;
+// ListItem:
+//	'* ' value=TextBlock
+// ;
 
-terminal HEADER_VALUE: 
-	' ' (!('\n' | '\r'))*
+terminal TEXT:
+	('a'..'å' | 'A'..'Å')(ID|WS|'!'|'?')+
 ;
 
 terminal WS:

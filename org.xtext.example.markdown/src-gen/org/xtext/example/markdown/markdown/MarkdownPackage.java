@@ -95,7 +95,7 @@ public interface MarkdownPackage extends EPackage
   int CONTENT = 1;
 
   /**
-   * The feature id for the '<em><b>Entity</b></em>' containment reference list.
+   * The feature id for the '<em><b>Entity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -113,6 +113,34 @@ public interface MarkdownPackage extends EPackage
   int CONTENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.markdown.markdown.impl.TextBlockImpl <em>Text Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.markdown.markdown.impl.TextBlockImpl
+   * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getTextBlock()
+   * @generated
+   */
+  int TEXT_BLOCK = 2;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_BLOCK__TEXT = 0;
+
+  /**
+   * The number of structural features of the '<em>Text Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_BLOCK_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.markdown.markdown.impl.Header1Impl <em>Header1</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -120,7 +148,7 @@ public interface MarkdownPackage extends EPackage
    * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getHeader1()
    * @generated
    */
-  int HEADER1 = 2;
+  int HEADER1 = 3;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -148,7 +176,7 @@ public interface MarkdownPackage extends EPackage
    * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getHeader2()
    * @generated
    */
-  int HEADER2 = 3;
+  int HEADER2 = 4;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -176,7 +204,7 @@ public interface MarkdownPackage extends EPackage
    * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getPlainText()
    * @generated
    */
-  int PLAIN_TEXT = 4;
+  int PLAIN_TEXT = 5;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -204,7 +232,7 @@ public interface MarkdownPackage extends EPackage
    * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getItalic()
    * @generated
    */
-  int ITALIC = 5;
+  int ITALIC = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -232,7 +260,7 @@ public interface MarkdownPackage extends EPackage
    * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getBold()
    * @generated
    */
-  int BOLD = 6;
+  int BOLD = 7;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -285,15 +313,36 @@ public interface MarkdownPackage extends EPackage
   EClass getContent();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.markdown.markdown.Content#getEntity <em>Entity</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.markdown.markdown.Content#getEntity <em>Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Entity</em>'.
+   * @return the meta object for the containment reference '<em>Entity</em>'.
    * @see org.xtext.example.markdown.markdown.Content#getEntity()
    * @see #getContent()
    * @generated
    */
   EReference getContent_Entity();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.markdown.markdown.TextBlock <em>Text Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text Block</em>'.
+   * @see org.xtext.example.markdown.markdown.TextBlock
+   * @generated
+   */
+  EClass getTextBlock();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.markdown.markdown.TextBlock#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Text</em>'.
+   * @see org.xtext.example.markdown.markdown.TextBlock#getText()
+   * @see #getTextBlock()
+   * @generated
+   */
+  EReference getTextBlock_Text();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.markdown.markdown.Header1 <em>Header1</em>}'.
@@ -452,12 +501,30 @@ public interface MarkdownPackage extends EPackage
     EClass CONTENT = eINSTANCE.getContent();
 
     /**
-     * The meta object literal for the '<em><b>Entity</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CONTENT__ENTITY = eINSTANCE.getContent_Entity();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.markdown.markdown.impl.TextBlockImpl <em>Text Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.markdown.markdown.impl.TextBlockImpl
+     * @see org.xtext.example.markdown.markdown.impl.MarkdownPackageImpl#getTextBlock()
+     * @generated
+     */
+    EClass TEXT_BLOCK = eINSTANCE.getTextBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEXT_BLOCK__TEXT = eINSTANCE.getTextBlock_Text();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.markdown.markdown.impl.Header1Impl <em>Header1</em>}' class.
