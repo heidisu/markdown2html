@@ -22,25 +22,24 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMarkdownParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_TEXT", "RULE_ID", "RULE_WS", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_ANY_OTHER", "'*'", "'* '", "'# '", "'## '", "'_'", "'**'", "'__'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_TEXT", "RULE_ID", "RULE_WS", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_ANY_OTHER", "'# '", "'## '", "'*'", "'_'", "'**'", "'__'"
     };
+    public static final int RULE_ID=6;
+    public static final int RULE_WS=7;
     public static final int RULE_NEWLINE=4;
     public static final int RULE_STRING=9;
+    public static final int RULE_ANY_OTHER=12;
     public static final int RULE_SL_COMMENT=11;
-    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
+    public static final int RULE_INT=8;
     public static final int T__18=18;
+    public static final int RULE_ML_COMMENT=10;
+    public static final int RULE_TEXT=5;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=6;
-    public static final int RULE_WS=7;
-    public static final int RULE_ANY_OTHER=12;
-    public static final int RULE_INT=8;
-    public static final int RULE_ML_COMMENT=10;
-    public static final int RULE_TEXT=5;
 
     // delegates
     // delegators
@@ -129,7 +128,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_TEXT||LA1_0==13||(LA1_0>=15 && LA1_0<=19)) ) {
+                if ( (LA1_0==RULE_TEXT||(LA1_0>=13 && LA1_0<=18)) ) {
                     alt1=1;
                 }
 
@@ -323,7 +322,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==RULE_TEXT||LA2_0==13||(LA2_0>=17 && LA2_0<=19)) ) {
+                if ( (LA2_0==RULE_TEXT||(LA2_0>=15 && LA2_0<=18)) ) {
                     alt2=1;
                 }
 
@@ -766,21 +765,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:295:1: ( ( ruleHeader1 ) | ( ruleHeader2 ) | ( ruleTextBlock ) )
             int alt3=3;
             switch ( input.LA(1) ) {
-            case 15:
+            case 13:
                 {
                 alt3=1;
                 }
                 break;
-            case 16:
+            case 14:
                 {
                 alt3=2;
                 }
                 break;
             case RULE_TEXT:
-            case 13:
+            case 15:
+            case 16:
             case 17:
             case 18:
-            case 19:
                 {
                 alt3=3;
                 }
@@ -882,14 +881,14 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                 alt4=1;
                 }
                 break;
-            case 13:
-            case 17:
+            case 15:
+            case 16:
                 {
                 alt4=2;
                 }
                 break;
+            case 17:
             case 18:
-            case 19:
                 {
                 alt4=3;
                 }
@@ -987,10 +986,10 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==13) ) {
+            if ( (LA5_0==15) ) {
                 alt5=1;
             }
-            else if ( (LA5_0==17) ) {
+            else if ( (LA5_0==16) ) {
                 alt5=2;
             }
             else {
@@ -1081,7 +1080,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             if ( (LA6_0==RULE_TEXT) ) {
                 alt6=1;
             }
-            else if ( ((LA6_0>=18 && LA6_0<=19)) ) {
+            else if ( ((LA6_0>=17 && LA6_0<=18)) ) {
                 alt6=2;
             }
             else {
@@ -1146,21 +1145,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Italic__ValueAlternatives_0_1_0"
 
 
-    // $ANTLR start "rule__Italic__Alternatives_0_2"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:391:1: rule__Italic__Alternatives_0_2 : ( ( '*' ) | ( '* ' ) );
-    public final void rule__Italic__Alternatives_0_2() throws RecognitionException {
+    // $ANTLR start "rule__Italic__ValueAlternatives_1_1_0"
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:391:1: rule__Italic__ValueAlternatives_1_1_0 : ( ( rulePlainText ) | ( ruleBold ) );
+    public final void rule__Italic__ValueAlternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:395:1: ( ( '*' ) | ( '* ' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:395:1: ( ( rulePlainText ) | ( ruleBold ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==13) ) {
+            if ( (LA7_0==RULE_TEXT) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==14) ) {
+            else if ( ((LA7_0>=17 && LA7_0<=18)) ) {
                 alt7=2;
             }
             else {
@@ -1171,84 +1170,13 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:396:1: ( '*' )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:396:1: ( rulePlainText )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:396:1: ( '*' )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:397:1: '*'
-                    {
-                     before(grammarAccess.getItalicAccess().getAsteriskKeyword_0_2_0()); 
-                    match(input,13,FOLLOW_13_in_rule__Italic__Alternatives_0_2801); 
-                     after(grammarAccess.getItalicAccess().getAsteriskKeyword_0_2_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:404:6: ( '* ' )
-                    {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:404:6: ( '* ' )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:405:1: '* '
-                    {
-                     before(grammarAccess.getItalicAccess().getAsteriskSpaceKeyword_0_2_1()); 
-                    match(input,14,FOLLOW_14_in_rule__Italic__Alternatives_0_2821); 
-                     after(grammarAccess.getItalicAccess().getAsteriskSpaceKeyword_0_2_1()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Italic__Alternatives_0_2"
-
-
-    // $ANTLR start "rule__Italic__ValueAlternatives_1_1_0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:417:1: rule__Italic__ValueAlternatives_1_1_0 : ( ( rulePlainText ) | ( ruleBold ) );
-    public final void rule__Italic__ValueAlternatives_1_1_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:421:1: ( ( rulePlainText ) | ( ruleBold ) )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==RULE_TEXT) ) {
-                alt8=1;
-            }
-            else if ( ((LA8_0>=18 && LA8_0<=19)) ) {
-                alt8=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
-
-                throw nvae;
-            }
-            switch (alt8) {
-                case 1 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:422:1: ( rulePlainText )
-                    {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:422:1: ( rulePlainText )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:423:1: rulePlainText
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:396:1: ( rulePlainText )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:397:1: rulePlainText
                     {
                      before(grammarAccess.getItalicAccess().getValuePlainTextParserRuleCall_1_1_0_0()); 
-                    pushFollow(FOLLOW_rulePlainText_in_rule__Italic__ValueAlternatives_1_1_0855);
+                    pushFollow(FOLLOW_rulePlainText_in_rule__Italic__ValueAlternatives_1_1_0800);
                     rulePlainText();
 
                     state._fsp--;
@@ -1261,13 +1189,13 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:428:6: ( ruleBold )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:402:6: ( ruleBold )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:428:6: ( ruleBold )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:429:1: ruleBold
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:402:6: ( ruleBold )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:403:1: ruleBold
                     {
                      before(grammarAccess.getItalicAccess().getValueBoldParserRuleCall_1_1_0_1()); 
-                    pushFollow(FOLLOW_ruleBold_in_rule__Italic__ValueAlternatives_1_1_0872);
+                    pushFollow(FOLLOW_ruleBold_in_rule__Italic__ValueAlternatives_1_1_0817);
                     ruleBold();
 
                     state._fsp--;
@@ -1297,40 +1225,40 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Alternatives"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:439:1: rule__Bold__Alternatives : ( ( ( rule__Bold__Group_0__0 ) ) | ( ( rule__Bold__Group_1__0 ) ) );
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:413:1: rule__Bold__Alternatives : ( ( ( rule__Bold__Group_0__0 ) ) | ( ( rule__Bold__Group_1__0 ) ) );
     public final void rule__Bold__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:443:1: ( ( ( rule__Bold__Group_0__0 ) ) | ( ( rule__Bold__Group_1__0 ) ) )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:417:1: ( ( ( rule__Bold__Group_0__0 ) ) | ( ( rule__Bold__Group_1__0 ) ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA9_0==18) ) {
-                alt9=1;
+            if ( (LA8_0==17) ) {
+                alt8=1;
             }
-            else if ( (LA9_0==19) ) {
-                alt9=2;
+            else if ( (LA8_0==18) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:444:1: ( ( rule__Bold__Group_0__0 ) )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:418:1: ( ( rule__Bold__Group_0__0 ) )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:444:1: ( ( rule__Bold__Group_0__0 ) )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:445:1: ( rule__Bold__Group_0__0 )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:418:1: ( ( rule__Bold__Group_0__0 ) )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:419:1: ( rule__Bold__Group_0__0 )
                     {
                      before(grammarAccess.getBoldAccess().getGroup_0()); 
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:446:1: ( rule__Bold__Group_0__0 )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:446:2: rule__Bold__Group_0__0
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:420:1: ( rule__Bold__Group_0__0 )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:420:2: rule__Bold__Group_0__0
                     {
-                    pushFollow(FOLLOW_rule__Bold__Group_0__0_in_rule__Bold__Alternatives904);
+                    pushFollow(FOLLOW_rule__Bold__Group_0__0_in_rule__Bold__Alternatives849);
                     rule__Bold__Group_0__0();
 
                     state._fsp--;
@@ -1346,16 +1274,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:450:6: ( ( rule__Bold__Group_1__0 ) )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:424:6: ( ( rule__Bold__Group_1__0 ) )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:450:6: ( ( rule__Bold__Group_1__0 ) )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:451:1: ( rule__Bold__Group_1__0 )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:424:6: ( ( rule__Bold__Group_1__0 ) )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:425:1: ( rule__Bold__Group_1__0 )
                     {
                      before(grammarAccess.getBoldAccess().getGroup_1()); 
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:452:1: ( rule__Bold__Group_1__0 )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:452:2: rule__Bold__Group_1__0
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:426:1: ( rule__Bold__Group_1__0 )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:426:2: rule__Bold__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__Bold__Group_1__0_in_rule__Bold__Alternatives922);
+                    pushFollow(FOLLOW_rule__Bold__Group_1__0_in_rule__Bold__Alternatives867);
                     rule__Bold__Group_1__0();
 
                     state._fsp--;
@@ -1388,37 +1316,37 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__ValueAlternatives_0_1_0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:461:1: rule__Bold__ValueAlternatives_0_1_0 : ( ( rulePlainText ) | ( ruleItalic ) );
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:435:1: rule__Bold__ValueAlternatives_0_1_0 : ( ( rulePlainText ) | ( ruleItalic ) );
     public final void rule__Bold__ValueAlternatives_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:465:1: ( ( rulePlainText ) | ( ruleItalic ) )
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:439:1: ( ( rulePlainText ) | ( ruleItalic ) )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_TEXT) ) {
-                alt10=1;
+            if ( (LA9_0==RULE_TEXT) ) {
+                alt9=1;
             }
-            else if ( (LA10_0==13||LA10_0==17) ) {
-                alt10=2;
+            else if ( ((LA9_0>=15 && LA9_0<=16)) ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt10) {
+            switch (alt9) {
                 case 1 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:466:1: ( rulePlainText )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:440:1: ( rulePlainText )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:466:1: ( rulePlainText )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:467:1: rulePlainText
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:440:1: ( rulePlainText )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:441:1: rulePlainText
                     {
                      before(grammarAccess.getBoldAccess().getValuePlainTextParserRuleCall_0_1_0_0()); 
-                    pushFollow(FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_0_1_0955);
+                    pushFollow(FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_0_1_0900);
                     rulePlainText();
 
                     state._fsp--;
@@ -1431,13 +1359,13 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:472:6: ( ruleItalic )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:446:6: ( ruleItalic )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:472:6: ( ruleItalic )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:473:1: ruleItalic
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:446:6: ( ruleItalic )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:447:1: ruleItalic
                     {
                      before(grammarAccess.getBoldAccess().getValueItalicParserRuleCall_0_1_0_1()); 
-                    pushFollow(FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_0_1_0972);
+                    pushFollow(FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_0_1_0917);
                     ruleItalic();
 
                     state._fsp--;
@@ -1467,37 +1395,37 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__ValueAlternatives_1_1_0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:483:1: rule__Bold__ValueAlternatives_1_1_0 : ( ( rulePlainText ) | ( ruleItalic ) );
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:457:1: rule__Bold__ValueAlternatives_1_1_0 : ( ( rulePlainText ) | ( ruleItalic ) );
     public final void rule__Bold__ValueAlternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:487:1: ( ( rulePlainText ) | ( ruleItalic ) )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:461:1: ( ( rulePlainText ) | ( ruleItalic ) )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_TEXT) ) {
-                alt11=1;
+            if ( (LA10_0==RULE_TEXT) ) {
+                alt10=1;
             }
-            else if ( (LA11_0==13||LA11_0==17) ) {
-                alt11=2;
+            else if ( ((LA10_0>=15 && LA10_0<=16)) ) {
+                alt10=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:488:1: ( rulePlainText )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:462:1: ( rulePlainText )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:488:1: ( rulePlainText )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:489:1: rulePlainText
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:462:1: ( rulePlainText )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:463:1: rulePlainText
                     {
                      before(grammarAccess.getBoldAccess().getValuePlainTextParserRuleCall_1_1_0_0()); 
-                    pushFollow(FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_1_1_01004);
+                    pushFollow(FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_1_1_0949);
                     rulePlainText();
 
                     state._fsp--;
@@ -1510,13 +1438,13 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:494:6: ( ruleItalic )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:468:6: ( ruleItalic )
                     {
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:494:6: ( ruleItalic )
-                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:495:1: ruleItalic
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:468:6: ( ruleItalic )
+                    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:469:1: ruleItalic
                     {
                      before(grammarAccess.getBoldAccess().getValueItalicParserRuleCall_1_1_0_1()); 
-                    pushFollow(FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_1_1_01021);
+                    pushFollow(FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_1_1_0966);
                     ruleItalic();
 
                     state._fsp--;
@@ -1546,21 +1474,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Content__Group__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:507:1: rule__Content__Group__0 : rule__Content__Group__0__Impl rule__Content__Group__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:481:1: rule__Content__Group__0 : rule__Content__Group__0__Impl rule__Content__Group__1 ;
     public final void rule__Content__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:511:1: ( rule__Content__Group__0__Impl rule__Content__Group__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:512:2: rule__Content__Group__0__Impl rule__Content__Group__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:485:1: ( rule__Content__Group__0__Impl rule__Content__Group__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:486:2: rule__Content__Group__0__Impl rule__Content__Group__1
             {
-            pushFollow(FOLLOW_rule__Content__Group__0__Impl_in_rule__Content__Group__01051);
+            pushFollow(FOLLOW_rule__Content__Group__0__Impl_in_rule__Content__Group__0996);
             rule__Content__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Content__Group__1_in_rule__Content__Group__01054);
+            pushFollow(FOLLOW_rule__Content__Group__1_in_rule__Content__Group__0999);
             rule__Content__Group__1();
 
             state._fsp--;
@@ -1584,23 +1512,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Content__Group__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:519:1: rule__Content__Group__0__Impl : ( ( rule__Content__EntityAssignment_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:493:1: rule__Content__Group__0__Impl : ( ( rule__Content__EntityAssignment_0 ) ) ;
     public final void rule__Content__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:523:1: ( ( ( rule__Content__EntityAssignment_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:524:1: ( ( rule__Content__EntityAssignment_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:497:1: ( ( ( rule__Content__EntityAssignment_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:498:1: ( ( rule__Content__EntityAssignment_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:524:1: ( ( rule__Content__EntityAssignment_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:525:1: ( rule__Content__EntityAssignment_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:498:1: ( ( rule__Content__EntityAssignment_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:499:1: ( rule__Content__EntityAssignment_0 )
             {
              before(grammarAccess.getContentAccess().getEntityAssignment_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:526:1: ( rule__Content__EntityAssignment_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:526:2: rule__Content__EntityAssignment_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:500:1: ( rule__Content__EntityAssignment_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:500:2: rule__Content__EntityAssignment_0
             {
-            pushFollow(FOLLOW_rule__Content__EntityAssignment_0_in_rule__Content__Group__0__Impl1081);
+            pushFollow(FOLLOW_rule__Content__EntityAssignment_0_in_rule__Content__Group__0__Impl1026);
             rule__Content__EntityAssignment_0();
 
             state._fsp--;
@@ -1631,16 +1559,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Content__Group__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:536:1: rule__Content__Group__1 : rule__Content__Group__1__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:510:1: rule__Content__Group__1 : rule__Content__Group__1__Impl ;
     public final void rule__Content__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:540:1: ( rule__Content__Group__1__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:541:2: rule__Content__Group__1__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:514:1: ( rule__Content__Group__1__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:515:2: rule__Content__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Content__Group__1__Impl_in_rule__Content__Group__11111);
+            pushFollow(FOLLOW_rule__Content__Group__1__Impl_in_rule__Content__Group__11056);
             rule__Content__Group__1__Impl();
 
             state._fsp--;
@@ -1664,66 +1592,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Content__Group__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:547:1: rule__Content__Group__1__Impl : ( ( ( RULE_NEWLINE ) ) ( ( RULE_NEWLINE )* ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:521:1: rule__Content__Group__1__Impl : ( RULE_NEWLINE ) ;
     public final void rule__Content__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:551:1: ( ( ( ( RULE_NEWLINE ) ) ( ( RULE_NEWLINE )* ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:552:1: ( ( ( RULE_NEWLINE ) ) ( ( RULE_NEWLINE )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:525:1: ( ( RULE_NEWLINE ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:526:1: ( RULE_NEWLINE )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:552:1: ( ( ( RULE_NEWLINE ) ) ( ( RULE_NEWLINE )* ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:553:1: ( ( RULE_NEWLINE ) ) ( ( RULE_NEWLINE )* )
-            {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:553:1: ( ( RULE_NEWLINE ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:554:1: ( RULE_NEWLINE )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:526:1: ( RULE_NEWLINE )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:527:1: RULE_NEWLINE
             {
              before(grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:555:1: ( RULE_NEWLINE )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:555:3: RULE_NEWLINE
-            {
-            match(input,RULE_NEWLINE,FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1141); 
-
-            }
-
+            match(input,RULE_NEWLINE,FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1083); 
              after(grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1()); 
-
-            }
-
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:558:1: ( ( RULE_NEWLINE )* )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:559:1: ( RULE_NEWLINE )*
-            {
-             before(grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:560:1: ( RULE_NEWLINE )*
-            loop12:
-            do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
-
-                if ( (LA12_0==RULE_NEWLINE) ) {
-                    alt12=1;
-                }
-
-
-                switch (alt12) {
-            	case 1 :
-            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:560:3: RULE_NEWLINE
-            	    {
-            	    match(input,RULE_NEWLINE,FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1154); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop12;
-                }
-            } while (true);
-
-             after(grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1()); 
-
-            }
-
 
             }
 
@@ -1746,21 +1629,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header1__Group__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:575:1: rule__Header1__Group__0 : rule__Header1__Group__0__Impl rule__Header1__Group__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:542:1: rule__Header1__Group__0 : rule__Header1__Group__0__Impl rule__Header1__Group__1 ;
     public final void rule__Header1__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:579:1: ( rule__Header1__Group__0__Impl rule__Header1__Group__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:580:2: rule__Header1__Group__0__Impl rule__Header1__Group__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:546:1: ( rule__Header1__Group__0__Impl rule__Header1__Group__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:547:2: rule__Header1__Group__0__Impl rule__Header1__Group__1
             {
-            pushFollow(FOLLOW_rule__Header1__Group__0__Impl_in_rule__Header1__Group__01191);
+            pushFollow(FOLLOW_rule__Header1__Group__0__Impl_in_rule__Header1__Group__01116);
             rule__Header1__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header1__Group__1_in_rule__Header1__Group__01194);
+            pushFollow(FOLLOW_rule__Header1__Group__1_in_rule__Header1__Group__01119);
             rule__Header1__Group__1();
 
             state._fsp--;
@@ -1784,20 +1667,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header1__Group__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:587:1: rule__Header1__Group__0__Impl : ( '# ' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:554:1: rule__Header1__Group__0__Impl : ( '# ' ) ;
     public final void rule__Header1__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:591:1: ( ( '# ' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:592:1: ( '# ' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:558:1: ( ( '# ' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:559:1: ( '# ' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:592:1: ( '# ' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:593:1: '# '
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:559:1: ( '# ' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:560:1: '# '
             {
              before(grammarAccess.getHeader1Access().getNumberSignSpaceKeyword_0()); 
-            match(input,15,FOLLOW_15_in_rule__Header1__Group__0__Impl1222); 
+            match(input,13,FOLLOW_13_in_rule__Header1__Group__0__Impl1147); 
              after(grammarAccess.getHeader1Access().getNumberSignSpaceKeyword_0()); 
 
             }
@@ -1821,16 +1704,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header1__Group__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:606:1: rule__Header1__Group__1 : rule__Header1__Group__1__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:573:1: rule__Header1__Group__1 : rule__Header1__Group__1__Impl ;
     public final void rule__Header1__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:610:1: ( rule__Header1__Group__1__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:611:2: rule__Header1__Group__1__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:577:1: ( rule__Header1__Group__1__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:578:2: rule__Header1__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Header1__Group__1__Impl_in_rule__Header1__Group__11253);
+            pushFollow(FOLLOW_rule__Header1__Group__1__Impl_in_rule__Header1__Group__11178);
             rule__Header1__Group__1__Impl();
 
             state._fsp--;
@@ -1854,23 +1737,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header1__Group__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:617:1: rule__Header1__Group__1__Impl : ( ( rule__Header1__ValueAssignment_1 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:584:1: rule__Header1__Group__1__Impl : ( ( rule__Header1__ValueAssignment_1 ) ) ;
     public final void rule__Header1__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:621:1: ( ( ( rule__Header1__ValueAssignment_1 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:622:1: ( ( rule__Header1__ValueAssignment_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:588:1: ( ( ( rule__Header1__ValueAssignment_1 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:589:1: ( ( rule__Header1__ValueAssignment_1 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:622:1: ( ( rule__Header1__ValueAssignment_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:623:1: ( rule__Header1__ValueAssignment_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:589:1: ( ( rule__Header1__ValueAssignment_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:590:1: ( rule__Header1__ValueAssignment_1 )
             {
              before(grammarAccess.getHeader1Access().getValueAssignment_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:624:1: ( rule__Header1__ValueAssignment_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:624:2: rule__Header1__ValueAssignment_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:591:1: ( rule__Header1__ValueAssignment_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:591:2: rule__Header1__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__Header1__ValueAssignment_1_in_rule__Header1__Group__1__Impl1280);
+            pushFollow(FOLLOW_rule__Header1__ValueAssignment_1_in_rule__Header1__Group__1__Impl1205);
             rule__Header1__ValueAssignment_1();
 
             state._fsp--;
@@ -1901,21 +1784,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header2__Group__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:638:1: rule__Header2__Group__0 : rule__Header2__Group__0__Impl rule__Header2__Group__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:605:1: rule__Header2__Group__0 : rule__Header2__Group__0__Impl rule__Header2__Group__1 ;
     public final void rule__Header2__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:642:1: ( rule__Header2__Group__0__Impl rule__Header2__Group__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:643:2: rule__Header2__Group__0__Impl rule__Header2__Group__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:609:1: ( rule__Header2__Group__0__Impl rule__Header2__Group__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:610:2: rule__Header2__Group__0__Impl rule__Header2__Group__1
             {
-            pushFollow(FOLLOW_rule__Header2__Group__0__Impl_in_rule__Header2__Group__01314);
+            pushFollow(FOLLOW_rule__Header2__Group__0__Impl_in_rule__Header2__Group__01239);
             rule__Header2__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Header2__Group__1_in_rule__Header2__Group__01317);
+            pushFollow(FOLLOW_rule__Header2__Group__1_in_rule__Header2__Group__01242);
             rule__Header2__Group__1();
 
             state._fsp--;
@@ -1939,20 +1822,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header2__Group__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:650:1: rule__Header2__Group__0__Impl : ( '## ' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:617:1: rule__Header2__Group__0__Impl : ( '## ' ) ;
     public final void rule__Header2__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:654:1: ( ( '## ' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:655:1: ( '## ' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:621:1: ( ( '## ' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:622:1: ( '## ' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:655:1: ( '## ' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:656:1: '## '
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:622:1: ( '## ' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:623:1: '## '
             {
              before(grammarAccess.getHeader2Access().getNumberSignNumberSignSpaceKeyword_0()); 
-            match(input,16,FOLLOW_16_in_rule__Header2__Group__0__Impl1345); 
+            match(input,14,FOLLOW_14_in_rule__Header2__Group__0__Impl1270); 
              after(grammarAccess.getHeader2Access().getNumberSignNumberSignSpaceKeyword_0()); 
 
             }
@@ -1976,16 +1859,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header2__Group__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:669:1: rule__Header2__Group__1 : rule__Header2__Group__1__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:636:1: rule__Header2__Group__1 : rule__Header2__Group__1__Impl ;
     public final void rule__Header2__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:673:1: ( rule__Header2__Group__1__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:674:2: rule__Header2__Group__1__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:640:1: ( rule__Header2__Group__1__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:641:2: rule__Header2__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Header2__Group__1__Impl_in_rule__Header2__Group__11376);
+            pushFollow(FOLLOW_rule__Header2__Group__1__Impl_in_rule__Header2__Group__11301);
             rule__Header2__Group__1__Impl();
 
             state._fsp--;
@@ -2009,23 +1892,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header2__Group__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:680:1: rule__Header2__Group__1__Impl : ( ( rule__Header2__ValueAssignment_1 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:647:1: rule__Header2__Group__1__Impl : ( ( rule__Header2__ValueAssignment_1 ) ) ;
     public final void rule__Header2__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:684:1: ( ( ( rule__Header2__ValueAssignment_1 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:685:1: ( ( rule__Header2__ValueAssignment_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:651:1: ( ( ( rule__Header2__ValueAssignment_1 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:652:1: ( ( rule__Header2__ValueAssignment_1 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:685:1: ( ( rule__Header2__ValueAssignment_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:686:1: ( rule__Header2__ValueAssignment_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:652:1: ( ( rule__Header2__ValueAssignment_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:653:1: ( rule__Header2__ValueAssignment_1 )
             {
              before(grammarAccess.getHeader2Access().getValueAssignment_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:687:1: ( rule__Header2__ValueAssignment_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:687:2: rule__Header2__ValueAssignment_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:654:1: ( rule__Header2__ValueAssignment_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:654:2: rule__Header2__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__Header2__ValueAssignment_1_in_rule__Header2__Group__1__Impl1403);
+            pushFollow(FOLLOW_rule__Header2__ValueAssignment_1_in_rule__Header2__Group__1__Impl1328);
             rule__Header2__ValueAssignment_1();
 
             state._fsp--;
@@ -2056,21 +1939,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:701:1: rule__Italic__Group_0__0 : rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:668:1: rule__Italic__Group_0__0 : rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1 ;
     public final void rule__Italic__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:705:1: ( rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:706:2: rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:672:1: ( rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:673:2: rule__Italic__Group_0__0__Impl rule__Italic__Group_0__1
             {
-            pushFollow(FOLLOW_rule__Italic__Group_0__0__Impl_in_rule__Italic__Group_0__01437);
+            pushFollow(FOLLOW_rule__Italic__Group_0__0__Impl_in_rule__Italic__Group_0__01362);
             rule__Italic__Group_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Italic__Group_0__1_in_rule__Italic__Group_0__01440);
+            pushFollow(FOLLOW_rule__Italic__Group_0__1_in_rule__Italic__Group_0__01365);
             rule__Italic__Group_0__1();
 
             state._fsp--;
@@ -2094,20 +1977,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:713:1: rule__Italic__Group_0__0__Impl : ( '*' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:680:1: rule__Italic__Group_0__0__Impl : ( '*' ) ;
     public final void rule__Italic__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:717:1: ( ( '*' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:718:1: ( '*' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:684:1: ( ( '*' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:685:1: ( '*' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:718:1: ( '*' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:719:1: '*'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:685:1: ( '*' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:686:1: '*'
             {
              before(grammarAccess.getItalicAccess().getAsteriskKeyword_0_0()); 
-            match(input,13,FOLLOW_13_in_rule__Italic__Group_0__0__Impl1468); 
+            match(input,15,FOLLOW_15_in_rule__Italic__Group_0__0__Impl1393); 
              after(grammarAccess.getItalicAccess().getAsteriskKeyword_0_0()); 
 
             }
@@ -2131,21 +2014,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:732:1: rule__Italic__Group_0__1 : rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:699:1: rule__Italic__Group_0__1 : rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2 ;
     public final void rule__Italic__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:736:1: ( rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:737:2: rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:703:1: ( rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:704:2: rule__Italic__Group_0__1__Impl rule__Italic__Group_0__2
             {
-            pushFollow(FOLLOW_rule__Italic__Group_0__1__Impl_in_rule__Italic__Group_0__11499);
+            pushFollow(FOLLOW_rule__Italic__Group_0__1__Impl_in_rule__Italic__Group_0__11424);
             rule__Italic__Group_0__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Italic__Group_0__2_in_rule__Italic__Group_0__11502);
+            pushFollow(FOLLOW_rule__Italic__Group_0__2_in_rule__Italic__Group_0__11427);
             rule__Italic__Group_0__2();
 
             state._fsp--;
@@ -2169,26 +2052,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:744:1: rule__Italic__Group_0__1__Impl : ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:711:1: rule__Italic__Group_0__1__Impl : ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) ) ;
     public final void rule__Italic__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:748:1: ( ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:749:1: ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:715:1: ( ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:716:1: ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:749:1: ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:750:1: ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:716:1: ( ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:717:1: ( ( rule__Italic__ValueAssignment_0_1 ) ) ( ( rule__Italic__ValueAssignment_0_1 )* )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:750:1: ( ( rule__Italic__ValueAssignment_0_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:751:1: ( rule__Italic__ValueAssignment_0_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:717:1: ( ( rule__Italic__ValueAssignment_0_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:718:1: ( rule__Italic__ValueAssignment_0_1 )
             {
              before(grammarAccess.getItalicAccess().getValueAssignment_0_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:752:1: ( rule__Italic__ValueAssignment_0_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:752:2: rule__Italic__ValueAssignment_0_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:719:1: ( rule__Italic__ValueAssignment_0_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:719:2: rule__Italic__ValueAssignment_0_1
             {
-            pushFollow(FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1531);
+            pushFollow(FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1456);
             rule__Italic__ValueAssignment_0_1();
 
             state._fsp--;
@@ -2200,26 +2083,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:755:1: ( ( rule__Italic__ValueAssignment_0_1 )* )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:756:1: ( rule__Italic__ValueAssignment_0_1 )*
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:722:1: ( ( rule__Italic__ValueAssignment_0_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:723:1: ( rule__Italic__ValueAssignment_0_1 )*
             {
              before(grammarAccess.getItalicAccess().getValueAssignment_0_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:757:1: ( rule__Italic__ValueAssignment_0_1 )*
-            loop13:
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:724:1: ( rule__Italic__ValueAssignment_0_1 )*
+            loop11:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA13_0==RULE_TEXT||(LA13_0>=18 && LA13_0<=19)) ) {
-                    alt13=1;
+                if ( (LA11_0==RULE_TEXT||(LA11_0>=17 && LA11_0<=18)) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt11) {
             	case 1 :
-            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:757:2: rule__Italic__ValueAssignment_0_1
+            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:724:2: rule__Italic__ValueAssignment_0_1
             	    {
-            	    pushFollow(FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1543);
+            	    pushFollow(FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1468);
             	    rule__Italic__ValueAssignment_0_1();
 
             	    state._fsp--;
@@ -2229,7 +2112,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop11;
                 }
             } while (true);
 
@@ -2259,16 +2142,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__2"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:768:1: rule__Italic__Group_0__2 : rule__Italic__Group_0__2__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:735:1: rule__Italic__Group_0__2 : rule__Italic__Group_0__2__Impl ;
     public final void rule__Italic__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:772:1: ( rule__Italic__Group_0__2__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:773:2: rule__Italic__Group_0__2__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:739:1: ( rule__Italic__Group_0__2__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:740:2: rule__Italic__Group_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__Italic__Group_0__2__Impl_in_rule__Italic__Group_0__21576);
+            pushFollow(FOLLOW_rule__Italic__Group_0__2__Impl_in_rule__Italic__Group_0__21501);
             rule__Italic__Group_0__2__Impl();
 
             state._fsp--;
@@ -2292,31 +2175,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_0__2__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:779:1: rule__Italic__Group_0__2__Impl : ( ( rule__Italic__Alternatives_0_2 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:746:1: rule__Italic__Group_0__2__Impl : ( '*' ) ;
     public final void rule__Italic__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:783:1: ( ( ( rule__Italic__Alternatives_0_2 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:784:1: ( ( rule__Italic__Alternatives_0_2 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:750:1: ( ( '*' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:751:1: ( '*' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:784:1: ( ( rule__Italic__Alternatives_0_2 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:785:1: ( rule__Italic__Alternatives_0_2 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:751:1: ( '*' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:752:1: '*'
             {
-             before(grammarAccess.getItalicAccess().getAlternatives_0_2()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:786:1: ( rule__Italic__Alternatives_0_2 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:786:2: rule__Italic__Alternatives_0_2
-            {
-            pushFollow(FOLLOW_rule__Italic__Alternatives_0_2_in_rule__Italic__Group_0__2__Impl1603);
-            rule__Italic__Alternatives_0_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getItalicAccess().getAlternatives_0_2()); 
+             before(grammarAccess.getItalicAccess().getAsteriskKeyword_0_2()); 
+            match(input,15,FOLLOW_15_in_rule__Italic__Group_0__2__Impl1529); 
+             after(grammarAccess.getItalicAccess().getAsteriskKeyword_0_2()); 
 
             }
 
@@ -2339,21 +2212,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:802:1: rule__Italic__Group_1__0 : rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:771:1: rule__Italic__Group_1__0 : rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1 ;
     public final void rule__Italic__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:806:1: ( rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:807:2: rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:775:1: ( rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:776:2: rule__Italic__Group_1__0__Impl rule__Italic__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Italic__Group_1__0__Impl_in_rule__Italic__Group_1__01639);
+            pushFollow(FOLLOW_rule__Italic__Group_1__0__Impl_in_rule__Italic__Group_1__01566);
             rule__Italic__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Italic__Group_1__1_in_rule__Italic__Group_1__01642);
+            pushFollow(FOLLOW_rule__Italic__Group_1__1_in_rule__Italic__Group_1__01569);
             rule__Italic__Group_1__1();
 
             state._fsp--;
@@ -2377,20 +2250,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:814:1: rule__Italic__Group_1__0__Impl : ( '_' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:783:1: rule__Italic__Group_1__0__Impl : ( '_' ) ;
     public final void rule__Italic__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:818:1: ( ( '_' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:819:1: ( '_' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:787:1: ( ( '_' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:788:1: ( '_' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:819:1: ( '_' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:820:1: '_'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:788:1: ( '_' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:789:1: '_'
             {
              before(grammarAccess.getItalicAccess().get_Keyword_1_0()); 
-            match(input,17,FOLLOW_17_in_rule__Italic__Group_1__0__Impl1670); 
+            match(input,16,FOLLOW_16_in_rule__Italic__Group_1__0__Impl1597); 
              after(grammarAccess.getItalicAccess().get_Keyword_1_0()); 
 
             }
@@ -2414,21 +2287,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:833:1: rule__Italic__Group_1__1 : rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:802:1: rule__Italic__Group_1__1 : rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2 ;
     public final void rule__Italic__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:837:1: ( rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:838:2: rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:806:1: ( rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:807:2: rule__Italic__Group_1__1__Impl rule__Italic__Group_1__2
             {
-            pushFollow(FOLLOW_rule__Italic__Group_1__1__Impl_in_rule__Italic__Group_1__11701);
+            pushFollow(FOLLOW_rule__Italic__Group_1__1__Impl_in_rule__Italic__Group_1__11628);
             rule__Italic__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Italic__Group_1__2_in_rule__Italic__Group_1__11704);
+            pushFollow(FOLLOW_rule__Italic__Group_1__2_in_rule__Italic__Group_1__11631);
             rule__Italic__Group_1__2();
 
             state._fsp--;
@@ -2452,26 +2325,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:845:1: rule__Italic__Group_1__1__Impl : ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:814:1: rule__Italic__Group_1__1__Impl : ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) ) ;
     public final void rule__Italic__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:849:1: ( ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:850:1: ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:818:1: ( ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:819:1: ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:850:1: ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:851:1: ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:819:1: ( ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:820:1: ( ( rule__Italic__ValueAssignment_1_1 ) ) ( ( rule__Italic__ValueAssignment_1_1 )* )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:851:1: ( ( rule__Italic__ValueAssignment_1_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:852:1: ( rule__Italic__ValueAssignment_1_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:820:1: ( ( rule__Italic__ValueAssignment_1_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:821:1: ( rule__Italic__ValueAssignment_1_1 )
             {
              before(grammarAccess.getItalicAccess().getValueAssignment_1_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:853:1: ( rule__Italic__ValueAssignment_1_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:853:2: rule__Italic__ValueAssignment_1_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:822:1: ( rule__Italic__ValueAssignment_1_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:822:2: rule__Italic__ValueAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1733);
+            pushFollow(FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1660);
             rule__Italic__ValueAssignment_1_1();
 
             state._fsp--;
@@ -2483,26 +2356,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:856:1: ( ( rule__Italic__ValueAssignment_1_1 )* )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:857:1: ( rule__Italic__ValueAssignment_1_1 )*
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:825:1: ( ( rule__Italic__ValueAssignment_1_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:826:1: ( rule__Italic__ValueAssignment_1_1 )*
             {
              before(grammarAccess.getItalicAccess().getValueAssignment_1_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:858:1: ( rule__Italic__ValueAssignment_1_1 )*
-            loop14:
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:827:1: ( rule__Italic__ValueAssignment_1_1 )*
+            loop12:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA14_0==RULE_TEXT||(LA14_0>=18 && LA14_0<=19)) ) {
-                    alt14=1;
+                if ( (LA12_0==RULE_TEXT||(LA12_0>=17 && LA12_0<=18)) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt12) {
             	case 1 :
-            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:858:2: rule__Italic__ValueAssignment_1_1
+            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:827:2: rule__Italic__ValueAssignment_1_1
             	    {
-            	    pushFollow(FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1745);
+            	    pushFollow(FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1672);
             	    rule__Italic__ValueAssignment_1_1();
 
             	    state._fsp--;
@@ -2512,7 +2385,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop12;
                 }
             } while (true);
 
@@ -2542,16 +2415,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__2"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:869:1: rule__Italic__Group_1__2 : rule__Italic__Group_1__2__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:838:1: rule__Italic__Group_1__2 : rule__Italic__Group_1__2__Impl ;
     public final void rule__Italic__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:873:1: ( rule__Italic__Group_1__2__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:874:2: rule__Italic__Group_1__2__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:842:1: ( rule__Italic__Group_1__2__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:843:2: rule__Italic__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__Italic__Group_1__2__Impl_in_rule__Italic__Group_1__21778);
+            pushFollow(FOLLOW_rule__Italic__Group_1__2__Impl_in_rule__Italic__Group_1__21705);
             rule__Italic__Group_1__2__Impl();
 
             state._fsp--;
@@ -2575,20 +2448,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__Group_1__2__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:880:1: rule__Italic__Group_1__2__Impl : ( '_' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:849:1: rule__Italic__Group_1__2__Impl : ( '_' ) ;
     public final void rule__Italic__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:884:1: ( ( '_' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:885:1: ( '_' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:853:1: ( ( '_' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:854:1: ( '_' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:885:1: ( '_' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:886:1: '_'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:854:1: ( '_' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:855:1: '_'
             {
              before(grammarAccess.getItalicAccess().get_Keyword_1_2()); 
-            match(input,17,FOLLOW_17_in_rule__Italic__Group_1__2__Impl1806); 
+            match(input,16,FOLLOW_16_in_rule__Italic__Group_1__2__Impl1733); 
              after(grammarAccess.getItalicAccess().get_Keyword_1_2()); 
 
             }
@@ -2612,21 +2485,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:905:1: rule__Bold__Group_0__0 : rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:874:1: rule__Bold__Group_0__0 : rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1 ;
     public final void rule__Bold__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:909:1: ( rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:910:2: rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:878:1: ( rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:879:2: rule__Bold__Group_0__0__Impl rule__Bold__Group_0__1
             {
-            pushFollow(FOLLOW_rule__Bold__Group_0__0__Impl_in_rule__Bold__Group_0__01843);
+            pushFollow(FOLLOW_rule__Bold__Group_0__0__Impl_in_rule__Bold__Group_0__01770);
             rule__Bold__Group_0__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Bold__Group_0__1_in_rule__Bold__Group_0__01846);
+            pushFollow(FOLLOW_rule__Bold__Group_0__1_in_rule__Bold__Group_0__01773);
             rule__Bold__Group_0__1();
 
             state._fsp--;
@@ -2650,20 +2523,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:917:1: rule__Bold__Group_0__0__Impl : ( '**' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:886:1: rule__Bold__Group_0__0__Impl : ( '**' ) ;
     public final void rule__Bold__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:921:1: ( ( '**' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:922:1: ( '**' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:890:1: ( ( '**' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:891:1: ( '**' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:922:1: ( '**' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:923:1: '**'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:891:1: ( '**' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:892:1: '**'
             {
              before(grammarAccess.getBoldAccess().getAsteriskAsteriskKeyword_0_0()); 
-            match(input,18,FOLLOW_18_in_rule__Bold__Group_0__0__Impl1874); 
+            match(input,17,FOLLOW_17_in_rule__Bold__Group_0__0__Impl1801); 
              after(grammarAccess.getBoldAccess().getAsteriskAsteriskKeyword_0_0()); 
 
             }
@@ -2687,21 +2560,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:936:1: rule__Bold__Group_0__1 : rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:905:1: rule__Bold__Group_0__1 : rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2 ;
     public final void rule__Bold__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:940:1: ( rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:941:2: rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:909:1: ( rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:910:2: rule__Bold__Group_0__1__Impl rule__Bold__Group_0__2
             {
-            pushFollow(FOLLOW_rule__Bold__Group_0__1__Impl_in_rule__Bold__Group_0__11905);
+            pushFollow(FOLLOW_rule__Bold__Group_0__1__Impl_in_rule__Bold__Group_0__11832);
             rule__Bold__Group_0__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Bold__Group_0__2_in_rule__Bold__Group_0__11908);
+            pushFollow(FOLLOW_rule__Bold__Group_0__2_in_rule__Bold__Group_0__11835);
             rule__Bold__Group_0__2();
 
             state._fsp--;
@@ -2725,26 +2598,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:948:1: rule__Bold__Group_0__1__Impl : ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:917:1: rule__Bold__Group_0__1__Impl : ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) ) ;
     public final void rule__Bold__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:952:1: ( ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:953:1: ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:921:1: ( ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:922:1: ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:953:1: ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:954:1: ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:922:1: ( ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:923:1: ( ( rule__Bold__ValueAssignment_0_1 ) ) ( ( rule__Bold__ValueAssignment_0_1 )* )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:954:1: ( ( rule__Bold__ValueAssignment_0_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:955:1: ( rule__Bold__ValueAssignment_0_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:923:1: ( ( rule__Bold__ValueAssignment_0_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:924:1: ( rule__Bold__ValueAssignment_0_1 )
             {
              before(grammarAccess.getBoldAccess().getValueAssignment_0_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:956:1: ( rule__Bold__ValueAssignment_0_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:956:2: rule__Bold__ValueAssignment_0_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:925:1: ( rule__Bold__ValueAssignment_0_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:925:2: rule__Bold__ValueAssignment_0_1
             {
-            pushFollow(FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1937);
+            pushFollow(FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1864);
             rule__Bold__ValueAssignment_0_1();
 
             state._fsp--;
@@ -2756,26 +2629,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:959:1: ( ( rule__Bold__ValueAssignment_0_1 )* )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:960:1: ( rule__Bold__ValueAssignment_0_1 )*
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:928:1: ( ( rule__Bold__ValueAssignment_0_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:929:1: ( rule__Bold__ValueAssignment_0_1 )*
             {
              before(grammarAccess.getBoldAccess().getValueAssignment_0_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:961:1: ( rule__Bold__ValueAssignment_0_1 )*
-            loop15:
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:930:1: ( rule__Bold__ValueAssignment_0_1 )*
+            loop13:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA15_0==RULE_TEXT||LA15_0==13||LA15_0==17) ) {
-                    alt15=1;
+                if ( (LA13_0==RULE_TEXT||(LA13_0>=15 && LA13_0<=16)) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt13) {
             	case 1 :
-            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:961:2: rule__Bold__ValueAssignment_0_1
+            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:930:2: rule__Bold__ValueAssignment_0_1
             	    {
-            	    pushFollow(FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1949);
+            	    pushFollow(FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1876);
             	    rule__Bold__ValueAssignment_0_1();
 
             	    state._fsp--;
@@ -2785,7 +2658,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2815,16 +2688,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__2"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:972:1: rule__Bold__Group_0__2 : rule__Bold__Group_0__2__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:941:1: rule__Bold__Group_0__2 : rule__Bold__Group_0__2__Impl ;
     public final void rule__Bold__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:976:1: ( rule__Bold__Group_0__2__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:977:2: rule__Bold__Group_0__2__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:945:1: ( rule__Bold__Group_0__2__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:946:2: rule__Bold__Group_0__2__Impl
             {
-            pushFollow(FOLLOW_rule__Bold__Group_0__2__Impl_in_rule__Bold__Group_0__21982);
+            pushFollow(FOLLOW_rule__Bold__Group_0__2__Impl_in_rule__Bold__Group_0__21909);
             rule__Bold__Group_0__2__Impl();
 
             state._fsp--;
@@ -2848,20 +2721,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_0__2__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:983:1: rule__Bold__Group_0__2__Impl : ( '**' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:952:1: rule__Bold__Group_0__2__Impl : ( '**' ) ;
     public final void rule__Bold__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:987:1: ( ( '**' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:988:1: ( '**' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:956:1: ( ( '**' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:957:1: ( '**' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:988:1: ( '**' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:989:1: '**'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:957:1: ( '**' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:958:1: '**'
             {
              before(grammarAccess.getBoldAccess().getAsteriskAsteriskKeyword_0_2()); 
-            match(input,18,FOLLOW_18_in_rule__Bold__Group_0__2__Impl2010); 
+            match(input,17,FOLLOW_17_in_rule__Bold__Group_0__2__Impl1937); 
              after(grammarAccess.getBoldAccess().getAsteriskAsteriskKeyword_0_2()); 
 
             }
@@ -2885,21 +2758,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1008:1: rule__Bold__Group_1__0 : rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:977:1: rule__Bold__Group_1__0 : rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1 ;
     public final void rule__Bold__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1012:1: ( rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1013:2: rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:981:1: ( rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:982:2: rule__Bold__Group_1__0__Impl rule__Bold__Group_1__1
             {
-            pushFollow(FOLLOW_rule__Bold__Group_1__0__Impl_in_rule__Bold__Group_1__02047);
+            pushFollow(FOLLOW_rule__Bold__Group_1__0__Impl_in_rule__Bold__Group_1__01974);
             rule__Bold__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Bold__Group_1__1_in_rule__Bold__Group_1__02050);
+            pushFollow(FOLLOW_rule__Bold__Group_1__1_in_rule__Bold__Group_1__01977);
             rule__Bold__Group_1__1();
 
             state._fsp--;
@@ -2923,20 +2796,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__0__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1020:1: rule__Bold__Group_1__0__Impl : ( '__' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:989:1: rule__Bold__Group_1__0__Impl : ( '__' ) ;
     public final void rule__Bold__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1024:1: ( ( '__' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1025:1: ( '__' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:993:1: ( ( '__' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:994:1: ( '__' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1025:1: ( '__' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1026:1: '__'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:994:1: ( '__' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:995:1: '__'
             {
              before(grammarAccess.getBoldAccess().get__Keyword_1_0()); 
-            match(input,19,FOLLOW_19_in_rule__Bold__Group_1__0__Impl2078); 
+            match(input,18,FOLLOW_18_in_rule__Bold__Group_1__0__Impl2005); 
              after(grammarAccess.getBoldAccess().get__Keyword_1_0()); 
 
             }
@@ -2960,21 +2833,21 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1039:1: rule__Bold__Group_1__1 : rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2 ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1008:1: rule__Bold__Group_1__1 : rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2 ;
     public final void rule__Bold__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1043:1: ( rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1044:2: rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1012:1: ( rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1013:2: rule__Bold__Group_1__1__Impl rule__Bold__Group_1__2
             {
-            pushFollow(FOLLOW_rule__Bold__Group_1__1__Impl_in_rule__Bold__Group_1__12109);
+            pushFollow(FOLLOW_rule__Bold__Group_1__1__Impl_in_rule__Bold__Group_1__12036);
             rule__Bold__Group_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Bold__Group_1__2_in_rule__Bold__Group_1__12112);
+            pushFollow(FOLLOW_rule__Bold__Group_1__2_in_rule__Bold__Group_1__12039);
             rule__Bold__Group_1__2();
 
             state._fsp--;
@@ -2998,26 +2871,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__1__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1051:1: rule__Bold__Group_1__1__Impl : ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1020:1: rule__Bold__Group_1__1__Impl : ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) ) ;
     public final void rule__Bold__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1055:1: ( ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1056:1: ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1024:1: ( ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1025:1: ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1056:1: ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1057:1: ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1025:1: ( ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1026:1: ( ( rule__Bold__ValueAssignment_1_1 ) ) ( ( rule__Bold__ValueAssignment_1_1 )* )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1057:1: ( ( rule__Bold__ValueAssignment_1_1 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1058:1: ( rule__Bold__ValueAssignment_1_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1026:1: ( ( rule__Bold__ValueAssignment_1_1 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1027:1: ( rule__Bold__ValueAssignment_1_1 )
             {
              before(grammarAccess.getBoldAccess().getValueAssignment_1_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1059:1: ( rule__Bold__ValueAssignment_1_1 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1059:2: rule__Bold__ValueAssignment_1_1
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1028:1: ( rule__Bold__ValueAssignment_1_1 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1028:2: rule__Bold__ValueAssignment_1_1
             {
-            pushFollow(FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2141);
+            pushFollow(FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2068);
             rule__Bold__ValueAssignment_1_1();
 
             state._fsp--;
@@ -3029,26 +2902,26 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1062:1: ( ( rule__Bold__ValueAssignment_1_1 )* )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1063:1: ( rule__Bold__ValueAssignment_1_1 )*
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1031:1: ( ( rule__Bold__ValueAssignment_1_1 )* )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1032:1: ( rule__Bold__ValueAssignment_1_1 )*
             {
              before(grammarAccess.getBoldAccess().getValueAssignment_1_1()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1064:1: ( rule__Bold__ValueAssignment_1_1 )*
-            loop16:
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1033:1: ( rule__Bold__ValueAssignment_1_1 )*
+            loop14:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_TEXT||LA16_0==13||LA16_0==17) ) {
-                    alt16=1;
+                if ( (LA14_0==RULE_TEXT||(LA14_0>=15 && LA14_0<=16)) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt14) {
             	case 1 :
-            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1064:2: rule__Bold__ValueAssignment_1_1
+            	    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1033:2: rule__Bold__ValueAssignment_1_1
             	    {
-            	    pushFollow(FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2153);
+            	    pushFollow(FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2080);
             	    rule__Bold__ValueAssignment_1_1();
 
             	    state._fsp--;
@@ -3058,7 +2931,7 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop14;
                 }
             } while (true);
 
@@ -3088,16 +2961,16 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__2"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1075:1: rule__Bold__Group_1__2 : rule__Bold__Group_1__2__Impl ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1044:1: rule__Bold__Group_1__2 : rule__Bold__Group_1__2__Impl ;
     public final void rule__Bold__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1079:1: ( rule__Bold__Group_1__2__Impl )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1080:2: rule__Bold__Group_1__2__Impl
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1048:1: ( rule__Bold__Group_1__2__Impl )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1049:2: rule__Bold__Group_1__2__Impl
             {
-            pushFollow(FOLLOW_rule__Bold__Group_1__2__Impl_in_rule__Bold__Group_1__22186);
+            pushFollow(FOLLOW_rule__Bold__Group_1__2__Impl_in_rule__Bold__Group_1__22113);
             rule__Bold__Group_1__2__Impl();
 
             state._fsp--;
@@ -3121,20 +2994,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__Group_1__2__Impl"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1086:1: rule__Bold__Group_1__2__Impl : ( '__' ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1055:1: rule__Bold__Group_1__2__Impl : ( '__' ) ;
     public final void rule__Bold__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1090:1: ( ( '__' ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1091:1: ( '__' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1059:1: ( ( '__' ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1060:1: ( '__' )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1091:1: ( '__' )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1092:1: '__'
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1060:1: ( '__' )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1061:1: '__'
             {
              before(grammarAccess.getBoldAccess().get__Keyword_1_2()); 
-            match(input,19,FOLLOW_19_in_rule__Bold__Group_1__2__Impl2214); 
+            match(input,18,FOLLOW_18_in_rule__Bold__Group_1__2__Impl2141); 
              after(grammarAccess.getBoldAccess().get__Keyword_1_2()); 
 
             }
@@ -3158,20 +3031,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Markdown__ContentAssignment"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1112:1: rule__Markdown__ContentAssignment : ( ruleContent ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1081:1: rule__Markdown__ContentAssignment : ( ruleContent ) ;
     public final void rule__Markdown__ContentAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1116:1: ( ( ruleContent ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1117:1: ( ruleContent )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1085:1: ( ( ruleContent ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1086:1: ( ruleContent )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1117:1: ( ruleContent )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1118:1: ruleContent
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1086:1: ( ruleContent )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1087:1: ruleContent
             {
              before(grammarAccess.getMarkdownAccess().getContentContentParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleContent_in_rule__Markdown__ContentAssignment2256);
+            pushFollow(FOLLOW_ruleContent_in_rule__Markdown__ContentAssignment2183);
             ruleContent();
 
             state._fsp--;
@@ -3199,23 +3072,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Content__EntityAssignment_0"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1127:1: rule__Content__EntityAssignment_0 : ( ( rule__Content__EntityAlternatives_0_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1096:1: rule__Content__EntityAssignment_0 : ( ( rule__Content__EntityAlternatives_0_0 ) ) ;
     public final void rule__Content__EntityAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1131:1: ( ( ( rule__Content__EntityAlternatives_0_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1132:1: ( ( rule__Content__EntityAlternatives_0_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1100:1: ( ( ( rule__Content__EntityAlternatives_0_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1101:1: ( ( rule__Content__EntityAlternatives_0_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1132:1: ( ( rule__Content__EntityAlternatives_0_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1133:1: ( rule__Content__EntityAlternatives_0_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1101:1: ( ( rule__Content__EntityAlternatives_0_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1102:1: ( rule__Content__EntityAlternatives_0_0 )
             {
              before(grammarAccess.getContentAccess().getEntityAlternatives_0_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1134:1: ( rule__Content__EntityAlternatives_0_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1134:2: rule__Content__EntityAlternatives_0_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1103:1: ( rule__Content__EntityAlternatives_0_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1103:2: rule__Content__EntityAlternatives_0_0
             {
-            pushFollow(FOLLOW_rule__Content__EntityAlternatives_0_0_in_rule__Content__EntityAssignment_02287);
+            pushFollow(FOLLOW_rule__Content__EntityAlternatives_0_0_in_rule__Content__EntityAssignment_02214);
             rule__Content__EntityAlternatives_0_0();
 
             state._fsp--;
@@ -3246,23 +3119,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TextBlock__TextAssignment"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1143:1: rule__TextBlock__TextAssignment : ( ( rule__TextBlock__TextAlternatives_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1112:1: rule__TextBlock__TextAssignment : ( ( rule__TextBlock__TextAlternatives_0 ) ) ;
     public final void rule__TextBlock__TextAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1147:1: ( ( ( rule__TextBlock__TextAlternatives_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1148:1: ( ( rule__TextBlock__TextAlternatives_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1116:1: ( ( ( rule__TextBlock__TextAlternatives_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1117:1: ( ( rule__TextBlock__TextAlternatives_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1148:1: ( ( rule__TextBlock__TextAlternatives_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1149:1: ( rule__TextBlock__TextAlternatives_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1117:1: ( ( rule__TextBlock__TextAlternatives_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1118:1: ( rule__TextBlock__TextAlternatives_0 )
             {
              before(grammarAccess.getTextBlockAccess().getTextAlternatives_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1150:1: ( rule__TextBlock__TextAlternatives_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1150:2: rule__TextBlock__TextAlternatives_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1119:1: ( rule__TextBlock__TextAlternatives_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1119:2: rule__TextBlock__TextAlternatives_0
             {
-            pushFollow(FOLLOW_rule__TextBlock__TextAlternatives_0_in_rule__TextBlock__TextAssignment2320);
+            pushFollow(FOLLOW_rule__TextBlock__TextAlternatives_0_in_rule__TextBlock__TextAssignment2247);
             rule__TextBlock__TextAlternatives_0();
 
             state._fsp--;
@@ -3293,20 +3166,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header1__ValueAssignment_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1159:1: rule__Header1__ValueAssignment_1 : ( RULE_TEXT ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1128:1: rule__Header1__ValueAssignment_1 : ( RULE_TEXT ) ;
     public final void rule__Header1__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1163:1: ( ( RULE_TEXT ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1164:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1132:1: ( ( RULE_TEXT ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1133:1: ( RULE_TEXT )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1164:1: ( RULE_TEXT )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1165:1: RULE_TEXT
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1133:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1134:1: RULE_TEXT
             {
              before(grammarAccess.getHeader1Access().getValueTEXTTerminalRuleCall_1_0()); 
-            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__Header1__ValueAssignment_12353); 
+            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__Header1__ValueAssignment_12280); 
              after(grammarAccess.getHeader1Access().getValueTEXTTerminalRuleCall_1_0()); 
 
             }
@@ -3330,20 +3203,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Header2__ValueAssignment_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1174:1: rule__Header2__ValueAssignment_1 : ( RULE_TEXT ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1143:1: rule__Header2__ValueAssignment_1 : ( RULE_TEXT ) ;
     public final void rule__Header2__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1178:1: ( ( RULE_TEXT ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1179:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1147:1: ( ( RULE_TEXT ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1148:1: ( RULE_TEXT )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1179:1: ( RULE_TEXT )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1180:1: RULE_TEXT
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1148:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1149:1: RULE_TEXT
             {
              before(grammarAccess.getHeader2Access().getValueTEXTTerminalRuleCall_1_0()); 
-            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__Header2__ValueAssignment_12384); 
+            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__Header2__ValueAssignment_12311); 
              after(grammarAccess.getHeader2Access().getValueTEXTTerminalRuleCall_1_0()); 
 
             }
@@ -3367,20 +3240,20 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__PlainText__ValueAssignment"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1189:1: rule__PlainText__ValueAssignment : ( RULE_TEXT ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1158:1: rule__PlainText__ValueAssignment : ( RULE_TEXT ) ;
     public final void rule__PlainText__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1193:1: ( ( RULE_TEXT ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1194:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1162:1: ( ( RULE_TEXT ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1163:1: ( RULE_TEXT )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1194:1: ( RULE_TEXT )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1195:1: RULE_TEXT
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1163:1: ( RULE_TEXT )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1164:1: RULE_TEXT
             {
              before(grammarAccess.getPlainTextAccess().getValueTEXTTerminalRuleCall_0()); 
-            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__PlainText__ValueAssignment2415); 
+            match(input,RULE_TEXT,FOLLOW_RULE_TEXT_in_rule__PlainText__ValueAssignment2342); 
              after(grammarAccess.getPlainTextAccess().getValueTEXTTerminalRuleCall_0()); 
 
             }
@@ -3404,23 +3277,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__ValueAssignment_0_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1204:1: rule__Italic__ValueAssignment_0_1 : ( ( rule__Italic__ValueAlternatives_0_1_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1173:1: rule__Italic__ValueAssignment_0_1 : ( ( rule__Italic__ValueAlternatives_0_1_0 ) ) ;
     public final void rule__Italic__ValueAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1208:1: ( ( ( rule__Italic__ValueAlternatives_0_1_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1209:1: ( ( rule__Italic__ValueAlternatives_0_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1177:1: ( ( ( rule__Italic__ValueAlternatives_0_1_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1178:1: ( ( rule__Italic__ValueAlternatives_0_1_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1209:1: ( ( rule__Italic__ValueAlternatives_0_1_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1210:1: ( rule__Italic__ValueAlternatives_0_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1178:1: ( ( rule__Italic__ValueAlternatives_0_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1179:1: ( rule__Italic__ValueAlternatives_0_1_0 )
             {
              before(grammarAccess.getItalicAccess().getValueAlternatives_0_1_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1211:1: ( rule__Italic__ValueAlternatives_0_1_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1211:2: rule__Italic__ValueAlternatives_0_1_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1180:1: ( rule__Italic__ValueAlternatives_0_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1180:2: rule__Italic__ValueAlternatives_0_1_0
             {
-            pushFollow(FOLLOW_rule__Italic__ValueAlternatives_0_1_0_in_rule__Italic__ValueAssignment_0_12446);
+            pushFollow(FOLLOW_rule__Italic__ValueAlternatives_0_1_0_in_rule__Italic__ValueAssignment_0_12373);
             rule__Italic__ValueAlternatives_0_1_0();
 
             state._fsp--;
@@ -3451,23 +3324,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Italic__ValueAssignment_1_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1220:1: rule__Italic__ValueAssignment_1_1 : ( ( rule__Italic__ValueAlternatives_1_1_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1189:1: rule__Italic__ValueAssignment_1_1 : ( ( rule__Italic__ValueAlternatives_1_1_0 ) ) ;
     public final void rule__Italic__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1224:1: ( ( ( rule__Italic__ValueAlternatives_1_1_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1225:1: ( ( rule__Italic__ValueAlternatives_1_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1193:1: ( ( ( rule__Italic__ValueAlternatives_1_1_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1194:1: ( ( rule__Italic__ValueAlternatives_1_1_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1225:1: ( ( rule__Italic__ValueAlternatives_1_1_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1226:1: ( rule__Italic__ValueAlternatives_1_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1194:1: ( ( rule__Italic__ValueAlternatives_1_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1195:1: ( rule__Italic__ValueAlternatives_1_1_0 )
             {
              before(grammarAccess.getItalicAccess().getValueAlternatives_1_1_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1227:1: ( rule__Italic__ValueAlternatives_1_1_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1227:2: rule__Italic__ValueAlternatives_1_1_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1196:1: ( rule__Italic__ValueAlternatives_1_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1196:2: rule__Italic__ValueAlternatives_1_1_0
             {
-            pushFollow(FOLLOW_rule__Italic__ValueAlternatives_1_1_0_in_rule__Italic__ValueAssignment_1_12479);
+            pushFollow(FOLLOW_rule__Italic__ValueAlternatives_1_1_0_in_rule__Italic__ValueAssignment_1_12406);
             rule__Italic__ValueAlternatives_1_1_0();
 
             state._fsp--;
@@ -3498,23 +3371,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__ValueAssignment_0_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1236:1: rule__Bold__ValueAssignment_0_1 : ( ( rule__Bold__ValueAlternatives_0_1_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1205:1: rule__Bold__ValueAssignment_0_1 : ( ( rule__Bold__ValueAlternatives_0_1_0 ) ) ;
     public final void rule__Bold__ValueAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1240:1: ( ( ( rule__Bold__ValueAlternatives_0_1_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1241:1: ( ( rule__Bold__ValueAlternatives_0_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1209:1: ( ( ( rule__Bold__ValueAlternatives_0_1_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1210:1: ( ( rule__Bold__ValueAlternatives_0_1_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1241:1: ( ( rule__Bold__ValueAlternatives_0_1_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1242:1: ( rule__Bold__ValueAlternatives_0_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1210:1: ( ( rule__Bold__ValueAlternatives_0_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1211:1: ( rule__Bold__ValueAlternatives_0_1_0 )
             {
              before(grammarAccess.getBoldAccess().getValueAlternatives_0_1_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1243:1: ( rule__Bold__ValueAlternatives_0_1_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1243:2: rule__Bold__ValueAlternatives_0_1_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1212:1: ( rule__Bold__ValueAlternatives_0_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1212:2: rule__Bold__ValueAlternatives_0_1_0
             {
-            pushFollow(FOLLOW_rule__Bold__ValueAlternatives_0_1_0_in_rule__Bold__ValueAssignment_0_12512);
+            pushFollow(FOLLOW_rule__Bold__ValueAlternatives_0_1_0_in_rule__Bold__ValueAssignment_0_12439);
             rule__Bold__ValueAlternatives_0_1_0();
 
             state._fsp--;
@@ -3545,23 +3418,23 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Bold__ValueAssignment_1_1"
-    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1252:1: rule__Bold__ValueAssignment_1_1 : ( ( rule__Bold__ValueAlternatives_1_1_0 ) ) ;
+    // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1221:1: rule__Bold__ValueAssignment_1_1 : ( ( rule__Bold__ValueAlternatives_1_1_0 ) ) ;
     public final void rule__Bold__ValueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1256:1: ( ( ( rule__Bold__ValueAlternatives_1_1_0 ) ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1257:1: ( ( rule__Bold__ValueAlternatives_1_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1225:1: ( ( ( rule__Bold__ValueAlternatives_1_1_0 ) ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1226:1: ( ( rule__Bold__ValueAlternatives_1_1_0 ) )
             {
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1257:1: ( ( rule__Bold__ValueAlternatives_1_1_0 ) )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1258:1: ( rule__Bold__ValueAlternatives_1_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1226:1: ( ( rule__Bold__ValueAlternatives_1_1_0 ) )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1227:1: ( rule__Bold__ValueAlternatives_1_1_0 )
             {
              before(grammarAccess.getBoldAccess().getValueAlternatives_1_1_0()); 
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1259:1: ( rule__Bold__ValueAlternatives_1_1_0 )
-            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1259:2: rule__Bold__ValueAlternatives_1_1_0
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1228:1: ( rule__Bold__ValueAlternatives_1_1_0 )
+            // ../org.xtext.example.markdown.ui/src-gen/org/xtext/example/markdown/ui/contentassist/antlr/internal/InternalMarkdown.g:1228:2: rule__Bold__ValueAlternatives_1_1_0
             {
-            pushFollow(FOLLOW_rule__Bold__ValueAlternatives_1_1_0_in_rule__Bold__ValueAssignment_1_12545);
+            pushFollow(FOLLOW_rule__Bold__ValueAlternatives_1_1_0_in_rule__Bold__ValueAssignment_1_12472);
             rule__Bold__ValueAlternatives_1_1_0();
 
             state._fsp--;
@@ -3597,14 +3470,14 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
 
     public static final BitSet FOLLOW_ruleMarkdown_in_entryRuleMarkdown61 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMarkdown68 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Markdown__ContentAssignment_in_ruleMarkdown94 = new BitSet(new long[]{0x00000000000FA022L});
+    public static final BitSet FOLLOW_rule__Markdown__ContentAssignment_in_ruleMarkdown94 = new BitSet(new long[]{0x000000000007E022L});
     public static final BitSet FOLLOW_ruleContent_in_entryRuleContent122 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleContent129 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Content__Group__0_in_ruleContent155 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTextBlock_in_entryRuleTextBlock182 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTextBlock189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TextBlock__TextAssignment_in_ruleTextBlock217 = new BitSet(new long[]{0x00000000000FA020L});
-    public static final BitSet FOLLOW_rule__TextBlock__TextAssignment_in_ruleTextBlock229 = new BitSet(new long[]{0x00000000000FA022L});
+    public static final BitSet FOLLOW_rule__TextBlock__TextAssignment_in_ruleTextBlock217 = new BitSet(new long[]{0x000000000007E020L});
+    public static final BitSet FOLLOW_rule__TextBlock__TextAssignment_in_ruleTextBlock229 = new BitSet(new long[]{0x000000000007E022L});
     public static final BitSet FOLLOW_ruleHeader1_in_entryRuleHeader1259 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleHeader1266 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Header1__Group__0_in_ruleHeader1292 = new BitSet(new long[]{0x0000000000000002L});
@@ -3630,77 +3503,74 @@ public class InternalMarkdownParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__Italic__Group_1__0_in_rule__Italic__Alternatives718 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePlainText_in_rule__Italic__ValueAlternatives_0_1_0751 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBold_in_rule__Italic__ValueAlternatives_0_1_0768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Italic__Alternatives_0_2801 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Italic__Alternatives_0_2821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlainText_in_rule__Italic__ValueAlternatives_1_1_0855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBold_in_rule__Italic__ValueAlternatives_1_1_0872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__0_in_rule__Bold__Alternatives904 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__0_in_rule__Bold__Alternatives922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_0_1_0955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_0_1_0972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_1_1_01004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_1_1_01021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Content__Group__0__Impl_in_rule__Content__Group__01051 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Content__Group__1_in_rule__Content__Group__01054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Content__EntityAssignment_0_in_rule__Content__Group__0__Impl1081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Content__Group__1__Impl_in_rule__Content__Group__11111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1141 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1154 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__Header1__Group__0__Impl_in_rule__Header1__Group__01191 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Header1__Group__1_in_rule__Header1__Group__01194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Header1__Group__0__Impl1222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header1__Group__1__Impl_in_rule__Header1__Group__11253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header1__ValueAssignment_1_in_rule__Header1__Group__1__Impl1280 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header2__Group__0__Impl_in_rule__Header2__Group__01314 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Header2__Group__1_in_rule__Header2__Group__01317 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Header2__Group__0__Impl1345 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header2__Group__1__Impl_in_rule__Header2__Group__11376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Header2__ValueAssignment_1_in_rule__Header2__Group__1__Impl1403 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__Group_0__0__Impl_in_rule__Italic__Group_0__01437 = new BitSet(new long[]{0x00000000000FA020L});
-    public static final BitSet FOLLOW_rule__Italic__Group_0__1_in_rule__Italic__Group_0__01440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Italic__Group_0__0__Impl1468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__Group_0__1__Impl_in_rule__Italic__Group_0__11499 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_rule__Italic__Group_0__2_in_rule__Italic__Group_0__11502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1531 = new BitSet(new long[]{0x00000000000FA022L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1543 = new BitSet(new long[]{0x00000000000FA022L});
-    public static final BitSet FOLLOW_rule__Italic__Group_0__2__Impl_in_rule__Italic__Group_0__21576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__Alternatives_0_2_in_rule__Italic__Group_0__2__Impl1603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__Group_1__0__Impl_in_rule__Italic__Group_1__01639 = new BitSet(new long[]{0x00000000000FA020L});
-    public static final BitSet FOLLOW_rule__Italic__Group_1__1_in_rule__Italic__Group_1__01642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Italic__Group_1__0__Impl1670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__Group_1__1__Impl_in_rule__Italic__Group_1__11701 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Italic__Group_1__2_in_rule__Italic__Group_1__11704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1733 = new BitSet(new long[]{0x00000000000FA022L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1745 = new BitSet(new long[]{0x00000000000FA022L});
-    public static final BitSet FOLLOW_rule__Italic__Group_1__2__Impl_in_rule__Italic__Group_1__21778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Italic__Group_1__2__Impl1806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__0__Impl_in_rule__Bold__Group_0__01843 = new BitSet(new long[]{0x0000000000022020L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__1_in_rule__Bold__Group_0__01846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Bold__Group_0__0__Impl1874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__1__Impl_in_rule__Bold__Group_0__11905 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__2_in_rule__Bold__Group_0__11908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1937 = new BitSet(new long[]{0x0000000000022022L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1949 = new BitSet(new long[]{0x0000000000022022L});
-    public static final BitSet FOLLOW_rule__Bold__Group_0__2__Impl_in_rule__Bold__Group_0__21982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Bold__Group_0__2__Impl2010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__0__Impl_in_rule__Bold__Group_1__02047 = new BitSet(new long[]{0x0000000000022020L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__1_in_rule__Bold__Group_1__02050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Bold__Group_1__0__Impl2078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__1__Impl_in_rule__Bold__Group_1__12109 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__2_in_rule__Bold__Group_1__12112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2141 = new BitSet(new long[]{0x0000000000022022L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2153 = new BitSet(new long[]{0x0000000000022022L});
-    public static final BitSet FOLLOW_rule__Bold__Group_1__2__Impl_in_rule__Bold__Group_1__22186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Bold__Group_1__2__Impl2214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleContent_in_rule__Markdown__ContentAssignment2256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Content__EntityAlternatives_0_0_in_rule__Content__EntityAssignment_02287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TextBlock__TextAlternatives_0_in_rule__TextBlock__TextAssignment2320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_TEXT_in_rule__Header1__ValueAssignment_12353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_TEXT_in_rule__Header2__ValueAssignment_12384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_TEXT_in_rule__PlainText__ValueAssignment2415 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAlternatives_0_1_0_in_rule__Italic__ValueAssignment_0_12446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Italic__ValueAlternatives_1_1_0_in_rule__Italic__ValueAssignment_1_12479 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAlternatives_0_1_0_in_rule__Bold__ValueAssignment_0_12512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Bold__ValueAlternatives_1_1_0_in_rule__Bold__ValueAssignment_1_12545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlainText_in_rule__Italic__ValueAlternatives_1_1_0800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBold_in_rule__Italic__ValueAlternatives_1_1_0817 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__0_in_rule__Bold__Alternatives849 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__0_in_rule__Bold__Alternatives867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_0_1_0900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_0_1_0917 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlainText_in_rule__Bold__ValueAlternatives_1_1_0949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleItalic_in_rule__Bold__ValueAlternatives_1_1_0966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Content__Group__0__Impl_in_rule__Content__Group__0996 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Content__Group__1_in_rule__Content__Group__0999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Content__EntityAssignment_0_in_rule__Content__Group__0__Impl1026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Content__Group__1__Impl_in_rule__Content__Group__11056 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NEWLINE_in_rule__Content__Group__1__Impl1083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header1__Group__0__Impl_in_rule__Header1__Group__01116 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Header1__Group__1_in_rule__Header1__Group__01119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Header1__Group__0__Impl1147 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header1__Group__1__Impl_in_rule__Header1__Group__11178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header1__ValueAssignment_1_in_rule__Header1__Group__1__Impl1205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header2__Group__0__Impl_in_rule__Header2__Group__01239 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Header2__Group__1_in_rule__Header2__Group__01242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Header2__Group__0__Impl1270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header2__Group__1__Impl_in_rule__Header2__Group__11301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Header2__ValueAssignment_1_in_rule__Header2__Group__1__Impl1328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__Group_0__0__Impl_in_rule__Italic__Group_0__01362 = new BitSet(new long[]{0x000000000007E020L});
+    public static final BitSet FOLLOW_rule__Italic__Group_0__1_in_rule__Italic__Group_0__01365 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Italic__Group_0__0__Impl1393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__Group_0__1__Impl_in_rule__Italic__Group_0__11424 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rule__Italic__Group_0__2_in_rule__Italic__Group_0__11427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1456 = new BitSet(new long[]{0x000000000007E022L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_0_1_in_rule__Italic__Group_0__1__Impl1468 = new BitSet(new long[]{0x000000000007E022L});
+    public static final BitSet FOLLOW_rule__Italic__Group_0__2__Impl_in_rule__Italic__Group_0__21501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Italic__Group_0__2__Impl1529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__Group_1__0__Impl_in_rule__Italic__Group_1__01566 = new BitSet(new long[]{0x000000000007E020L});
+    public static final BitSet FOLLOW_rule__Italic__Group_1__1_in_rule__Italic__Group_1__01569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Italic__Group_1__0__Impl1597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__Group_1__1__Impl_in_rule__Italic__Group_1__11628 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__Italic__Group_1__2_in_rule__Italic__Group_1__11631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1660 = new BitSet(new long[]{0x000000000007E022L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAssignment_1_1_in_rule__Italic__Group_1__1__Impl1672 = new BitSet(new long[]{0x000000000007E022L});
+    public static final BitSet FOLLOW_rule__Italic__Group_1__2__Impl_in_rule__Italic__Group_1__21705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Italic__Group_1__2__Impl1733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__0__Impl_in_rule__Bold__Group_0__01770 = new BitSet(new long[]{0x0000000000018020L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__1_in_rule__Bold__Group_0__01773 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Bold__Group_0__0__Impl1801 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__1__Impl_in_rule__Bold__Group_0__11832 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__2_in_rule__Bold__Group_0__11835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1864 = new BitSet(new long[]{0x0000000000018022L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_0_1_in_rule__Bold__Group_0__1__Impl1876 = new BitSet(new long[]{0x0000000000018022L});
+    public static final BitSet FOLLOW_rule__Bold__Group_0__2__Impl_in_rule__Bold__Group_0__21909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Bold__Group_0__2__Impl1937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__0__Impl_in_rule__Bold__Group_1__01974 = new BitSet(new long[]{0x0000000000018020L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__1_in_rule__Bold__Group_1__01977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Bold__Group_1__0__Impl2005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__1__Impl_in_rule__Bold__Group_1__12036 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__2_in_rule__Bold__Group_1__12039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2068 = new BitSet(new long[]{0x0000000000018022L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAssignment_1_1_in_rule__Bold__Group_1__1__Impl2080 = new BitSet(new long[]{0x0000000000018022L});
+    public static final BitSet FOLLOW_rule__Bold__Group_1__2__Impl_in_rule__Bold__Group_1__22113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Bold__Group_1__2__Impl2141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleContent_in_rule__Markdown__ContentAssignment2183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Content__EntityAlternatives_0_0_in_rule__Content__EntityAssignment_02214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TextBlock__TextAlternatives_0_in_rule__TextBlock__TextAssignment2247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TEXT_in_rule__Header1__ValueAssignment_12280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TEXT_in_rule__Header2__ValueAssignment_12311 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TEXT_in_rule__PlainText__ValueAssignment2342 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAlternatives_0_1_0_in_rule__Italic__ValueAssignment_0_12373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Italic__ValueAlternatives_1_1_0_in_rule__Italic__ValueAssignment_1_12406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAlternatives_0_1_0_in_rule__Bold__ValueAssignment_0_12439 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Bold__ValueAlternatives_1_1_0_in_rule__Bold__ValueAssignment_1_12472 = new BitSet(new long[]{0x0000000000000002L});
 
 }

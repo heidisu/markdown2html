@@ -45,10 +45,10 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//Content:
-		//	entity=(Header1 | Header2 | TextBlock) NEWLINE+;
+		//	entity=(Header1 | Header2 | TextBlock) NEWLINE;
 		@Override public ParserRule getRule() { return rule; }
 
-		//entity=(Header1 | Header2 | TextBlock) NEWLINE+
+		//entity=(Header1 | Header2 | TextBlock) NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//entity=(Header1 | Header2 | TextBlock)
@@ -66,7 +66,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		//TextBlock
 		public RuleCall getEntityTextBlockParserRuleCall_0_0_2() { return cEntityTextBlockParserRuleCall_0_0_2; }
 
-		//NEWLINE+
+		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_1() { return cNEWLINETerminalRuleCall_1; }
 	}
 
@@ -171,9 +171,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cValueAlternatives_0_1_0 = (Alternatives)cValueAssignment_0_1.eContents().get(0);
 		private final RuleCall cValuePlainTextParserRuleCall_0_1_0_0 = (RuleCall)cValueAlternatives_0_1_0.eContents().get(0);
 		private final RuleCall cValueBoldParserRuleCall_0_1_0_1 = (RuleCall)cValueAlternatives_0_1_0.eContents().get(1);
-		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
-		private final Keyword cAsteriskKeyword_0_2_0 = (Keyword)cAlternatives_0_2.eContents().get(0);
-		private final Keyword cAsteriskSpaceKeyword_0_2_1 = (Keyword)cAlternatives_0_2.eContents().get(1);
+		private final Keyword cAsteriskKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword c_Keyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -183,13 +181,13 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword c_Keyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//Italic:
-		//	"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_";
+		//	"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_"
+		//"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"*" value+=(PlainText | Bold)+ ("*" | "* ")
+		//"*" value+=(PlainText | Bold)+ "*"
 		public Group getGroup_0() { return cGroup_0; }
 
 		//"*"
@@ -207,14 +205,8 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		//Bold
 		public RuleCall getValueBoldParserRuleCall_0_1_0_1() { return cValueBoldParserRuleCall_0_1_0_1; }
 
-		//"*" | "* "
-		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
-
 		//"*"
-		public Keyword getAsteriskKeyword_0_2_0() { return cAsteriskKeyword_0_2_0; }
-
-		//"* "
-		public Keyword getAsteriskSpaceKeyword_0_2_1() { return cAsteriskSpaceKeyword_0_2_1; }
+		public Keyword getAsteriskKeyword_0_2() { return cAsteriskKeyword_0_2; }
 
 		//"_" value+=(PlainText | Bold)+ "_"
 		public Group getGroup_1() { return cGroup_1; }
@@ -318,6 +310,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tTEXT;
 	private final TerminalRule tWS;
 	private final TerminalRule tNEWLINE;
+	private final TerminalRule tID;
 	
 	private final Grammar grammar;
 
@@ -339,6 +332,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 		this.tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TEXT");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -379,7 +373,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Content:
-	//	entity=(Header1 | Header2 | TextBlock) NEWLINE+;
+	//	entity=(Header1 | Header2 | TextBlock) NEWLINE;
 	public ContentElements getContentAccess() {
 		return pContent;
 	}
@@ -429,7 +423,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Italic:
-	//	"*" value+=(PlainText | Bold)+ ("*" | "* ") | "_" value+=(PlainText | Bold)+ "_";
+	//	"*" value+=(PlainText | Bold)+ "*" | "_" value+=(PlainText | Bold)+ "_";
 	public ItalicElements getItalicAccess() {
 		return pItalic;
 	}
@@ -452,7 +446,7 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	////	'* ' value=TextBlock
 	//// ;
 	//terminal TEXT:
-	//	("a".."å" | "A".."Å") (ID | WS | "!" | "?")+;
+	//	("a".."å" | "A".."Å") (ID | WS)+;
 	public TerminalRule getTEXTRule() {
 		return tTEXT;
 	} 
@@ -470,9 +464,9 @@ public class MarkdownGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal ID:
-	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
+	//	("a".."å" | "A".."Å") ("a".."å" | "A".."Å" | "0".."9" | "!" | "?")*;
 	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
+		return tID;
 	} 
 
 	//terminal INT returns ecore::EInt:

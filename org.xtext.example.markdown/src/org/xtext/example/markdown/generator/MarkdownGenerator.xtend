@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList
 import org.xtext.example.markdown.markdown.Content
 import org.xtext.example.markdown.markdown.Header1
 import org.xtext.example.markdown.markdown.Header2
-import org.xtext.example.markdown.markdown.Bold
-import org.xtext.example.markdown.markdown.Italic
 import org.xtext.example.markdown.markdown.PlainText
 import org.xtext.example.markdown.markdown.TextBlock
+import org.xtext.example.markdown.markdown.Bold
+import org.xtext.example.markdown.markdown.Italic
 
 /**
  * Generates code from your model files on save.
@@ -50,15 +50,15 @@ class MarkdownGenerator implements IGenerator {
 	}
 	
 	def dispatch String generate(TextBlock textblock){
-		textblock.text.map[generate].join
+		textblock.text.map[generate].join(' ') + '<br/>'
 	}
 	
 	def dispatch String generate(Bold bold){
-		'<b>' + bold.value.map[generate].join + '</b>'
+		'<b>' + bold.value.map[generate].join(' ') + '</b>'
 	}
 	
 	def dispatch String generate(Italic italic){
-		'<i>' + italic.value.map[generate].join + '</i>'
+		'<i>' + italic.value.map[generate].join(' ') + '</i>'
 	}
 	
 	def dispatch String generate(PlainText plainText){

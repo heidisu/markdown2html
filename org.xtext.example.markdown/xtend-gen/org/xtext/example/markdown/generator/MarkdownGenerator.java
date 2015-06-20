@@ -80,7 +80,8 @@ public class MarkdownGenerator implements IGenerator {
       return this.generate(it);
     };
     List<String> _map = ListExtensions.<EObject, String>map(_text, _function);
-    return IterableExtensions.join(_map);
+    String _join = IterableExtensions.join(_map, " ");
+    return (_join + "<br/>");
   }
   
   protected String _generate(final Bold bold) {
@@ -89,7 +90,7 @@ public class MarkdownGenerator implements IGenerator {
       return this.generate(it);
     };
     List<String> _map = ListExtensions.<EObject, String>map(_value, _function);
-    String _join = IterableExtensions.join(_map);
+    String _join = IterableExtensions.join(_map, " ");
     String _plus = ("<b>" + _join);
     return (_plus + "</b>");
   }
@@ -100,7 +101,7 @@ public class MarkdownGenerator implements IGenerator {
       return this.generate(it);
     };
     List<String> _map = ListExtensions.<EObject, String>map(_value, _function);
-    String _join = IterableExtensions.join(_map);
+    String _join = IterableExtensions.join(_map, " ");
     String _plus = ("<i>" + _join);
     return (_plus + "</i>");
   }

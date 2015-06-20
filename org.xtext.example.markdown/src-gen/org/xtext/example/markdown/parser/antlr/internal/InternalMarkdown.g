@@ -167,11 +167,11 @@ ruleContent returns [EObject current=null]
 )
 
 )
-)(this_NEWLINE_1=RULE_NEWLINE
+)this_NEWLINE_1=RULE_NEWLINE
     { 
     newLeafNode(this_NEWLINE_1, grammarAccess.getContentAccess().getNEWLINETerminalRuleCall_1()); 
     }
-)+)
+)
 ;
 
 
@@ -429,19 +429,14 @@ ruleItalic returns [EObject current=null]
 )
 
 )
-)+(	otherlv_2='*' 
+)+	otherlv_2='*' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getItalicAccess().getAsteriskKeyword_0_2_0());
+    	newLeafNode(otherlv_2, grammarAccess.getItalicAccess().getAsteriskKeyword_0_2());
     }
-
-    |	otherlv_3='* ' 
+)
+    |(	otherlv_3='_' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getItalicAccess().getAsteriskSpaceKeyword_0_2_1());
-    }
-))
-    |(	otherlv_4='_' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getItalicAccess().get_Keyword_1_0());
+    	newLeafNode(otherlv_3, grammarAccess.getItalicAccess().get_Keyword_1_0());
     }
 (
 (
@@ -449,14 +444,14 @@ ruleItalic returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getItalicAccess().getValuePlainTextParserRuleCall_1_1_0_0()); 
 	    }
-		lv_value_5_1=rulePlainText		{
+		lv_value_4_1=rulePlainText		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getItalicRule());
 	        }
        		add(
        			$current, 
        			"value",
-        		lv_value_5_1, 
+        		lv_value_4_1, 
         		"PlainText");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -464,14 +459,14 @@ ruleItalic returns [EObject current=null]
     |		{ 
 	        newCompositeNode(grammarAccess.getItalicAccess().getValueBoldParserRuleCall_1_1_0_1()); 
 	    }
-		lv_value_5_2=ruleBold		{
+		lv_value_4_2=ruleBold		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getItalicRule());
 	        }
        		add(
        			$current, 
        			"value",
-        		lv_value_5_2, 
+        		lv_value_4_2, 
         		"Bold");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -479,9 +474,9 @@ ruleItalic returns [EObject current=null]
 )
 
 )
-)+	otherlv_6='_' 
+)+	otherlv_5='_' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getItalicAccess().get_Keyword_1_2());
+    	newLeafNode(otherlv_5, grammarAccess.getItalicAccess().get_Keyword_1_2());
     }
 ))
 ;
@@ -600,13 +595,13 @@ ruleBold returns [EObject current=null]
 
 
 
-RULE_TEXT : ('a'..'\u00E5'|'A'..'\u00C5') (RULE_ID|RULE_WS|'!'|'?')+;
+RULE_TEXT : ('a'..'\u00E5'|'A'..'\u00C5') (RULE_ID|RULE_WS)+;
 
 RULE_WS : (' '|'\t')+;
 
 RULE_NEWLINE : '\r'? '\n';
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : ('a'..'\u00E5'|'A'..'\u00C5') ('a'..'\u00E5'|'A'..'\u00C5'|'0'..'9'|'!'|'?')*;
 
 RULE_INT : ('0'..'9')+;
 

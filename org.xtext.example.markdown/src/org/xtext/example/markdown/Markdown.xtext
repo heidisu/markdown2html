@@ -8,7 +8,7 @@ Markdown:
 
 Content:
     entity=(Header1|Header2|TextBlock)
-    NEWLINE+
+    NEWLINE
 ;
 
 TextBlock:
@@ -28,11 +28,11 @@ PlainText:
 ;
 
 Italic:
-	(('*' value +=(PlainText|Bold)+ ('*'|'* '))|('_' value +=(PlainText|Bold)+ '_')) 
+	('*' value +=(PlainText|Bold)+ '*')|('_' value +=(PlainText|Bold)+ '_')
 ;
 
 Bold:
-	(('**' value += (PlainText|Italic)+'**') | ('__' value +=(PlainText|Italic)+ '__')) 
+	('**' value += (PlainText|Italic)+'**') | ('__' value +=(PlainText|Italic)+ '__')
 ;
 
 // ListItem:
@@ -40,7 +40,7 @@ Bold:
 // ;
 
 terminal TEXT:
-	('a'..'å' | 'A'..'Å')(ID|WS|'!'|'?')+
+	('a'..'å' | 'A'..'Å')(ID|WS)+
 ;
 
 terminal WS:
@@ -50,3 +50,5 @@ terminal WS:
 terminal NEWLINE:
     '\r'? '\n'
 ;
+
+terminal ID: ('a'..'å'|'A'..'Å') ('a'..'å'|'A'..'Å'|'0'..'9'|'!'|'?')*;

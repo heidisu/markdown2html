@@ -41,7 +41,6 @@ public class MarkdownParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextBlockAccess().getTextAlternatives_0(), "rule__TextBlock__TextAlternatives_0");
 					put(grammarAccess.getItalicAccess().getAlternatives(), "rule__Italic__Alternatives");
 					put(grammarAccess.getItalicAccess().getValueAlternatives_0_1_0(), "rule__Italic__ValueAlternatives_0_1_0");
-					put(grammarAccess.getItalicAccess().getAlternatives_0_2(), "rule__Italic__Alternatives_0_2");
 					put(grammarAccess.getItalicAccess().getValueAlternatives_1_1_0(), "rule__Italic__ValueAlternatives_1_1_0");
 					put(grammarAccess.getBoldAccess().getAlternatives(), "rule__Bold__Alternatives");
 					put(grammarAccess.getBoldAccess().getValueAlternatives_0_1_0(), "rule__Bold__ValueAlternatives_0_1_0");
